@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Circuit Project </title>
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/main.css">
+  </head>
+  <body>
+
+    <header>
+      <div class="u-shop-header">
+        <div class="header-left">
+          <a href="index.html" class="u-shop-logo"><h1>uShop</h1>
+          </a>
+        </div>
+      
+        <div class="header-middle">
+          <button class="btn-search-icon"><img src="images/icons/search-icon.png" alt="search-icon"></button>
+          <input type="text" placeholder="search" class="input-search">
+        </div>
+
+        <div class="header-right">
+          <a href="index.html" class="user-icon"><img src="images/icons/user-icon.png" alt="user-icon" width="40" height="40"></a>
+          <a href="index.html" class="cart-link"><img src="images/icons/cart-icon.png" alt="cart-icon" class="cart-logo">
+          <div class="cart-quantity">4</div>
+          <div class="cart-label">Cart</div>
+          </a>
+        </div>
+        
+      </div>
+    </header>
+
+    
+    <div class="main">
+<!-- 
+      <div class="container">
+        <div class="wrapper">
+          <img id="id1"   src="images/men's-sleeveless.jpg" alt="sleeveless shirt">
+        
+           <img id="id2"  src="images/white-sneakers.jpg" alt="white men's shoe">
+          
+          <img id="id3" src="images/suit-trousers.jpg" alt=" men suit trousers ">
+          
+          <img id="id4" src="images/stock-women-clothes.jpg" alt="stock women clothes">
+        </div>
+      
+         <div class="nav">
+          <a href="#id1"></a>
+          <a href="#id2"></a>
+          <a href="#id3"></a>
+          <a href="#id4"></a>
+        </div> 
+      </div> -->
+      
+
+      <div class="product-grid js-product-grid">
+
+        <div class="product-container">
+
+          <div class="image-container">
+            <img src="images/men's-sneakers-khaki.jpg" alt="khaki-sneakers" class="product-image">
+          </div>
+
+          <div class="product-name">
+              Men's Breathable Lace up Sneakers - Khaki. 
+          </div>
+
+          <div class="product-price">11.93</div>
+          <div class="old-price">13.70</div>
+
+          <div class="product-rating-container">
+            <img src="images/icons/product-rating-45.png" alt="ratings" class="rating-stars">
+            <div class="product-rating-count">(137)</div>
+          </div>
+
+          
+          <div class="select-product-quantity">
+
+            <div class="items-left">2 items left</div>
+            <select>
+              <option selected value="1">1</option>
+              <option value="1">2</option>
+              <option value="1">3</option>
+              <option value="1">4</option>
+              <option value="1">5</option>
+            </select>
+            <button class="next-product">Next</button>
+
+          </div>
+
+          <div class="shop-chant">uShop Express</div>
+
+          <div class="added-to-cart-message">Product added to cart successfully</div>
+
+          <button class="add-to-cart-btn">Add to cart</button>
+
+        </div>
+
+        <div class="product-container">
+          <div class="image-container">
+            <img src="images/men's-printed-t-shirt.jpg" alt="sneakers" class="product-image">
+          </div>
+
+          <div class="product-name">
+          Men's Printed T-Shirt 4 in 1 Black/White.
+          </div>
+
+          <div class="product-price">22.06</div>
+          <div class="old-price">25.50</div>
+          <div class="product-rating-container">
+            <img src="images/icons/rating-40.png" alt="ratings" class="rating-stars">
+            <div class="product-rating-count">(108)</div>
+          </div>
+          
+          
+          <div class="select-product-quantity">
+            <div class="items-left"> 2 items left</div>
+            <select>
+              <option value="1">1</option>
+              <option value="1">2</option>
+              <option value="1">3</option>
+              <option value="1">4</option>
+              <option value="1">5</option>
+            </select>
+            <button class="next-product">Next</button>
+          </div>
+
+          <div class="shop-chant">uShop Express</div>
+          <div class="added-to-cart-message">Product added to cart successfully</div>
+      
+          <button class="add-to-cart-btn">Add to cart</button>
+        </div>
+
+        <div class="product-container">
+          <div class="image-container">
+            <img src="images/ladies-red-hand-bag.jpg" alt="sneakers" class="product-image">
+          </div>
+
+          <div class="product-name">
+          Ladies' Hand Bag - Black & White  
+          </div>
+
+          <div class="product-price">16.85</div>
+          
+          <div class="old-price">18.30</div>
+
+          <div class="product-rating-container">
+            <img src="images/icons/product-rating-45.png" alt="ratings" class="rating-stars">
+            <div class="product-rating-count">(47)</div>
+          </div>
+          
+          <div class="select-product-quantity">
+            <div class="items-left">3 items left</div>
+            <select>
+              <option value="1">1</option>
+              <option value="1">2</option>
+              <option value="1">3</option>
+              <option value="1">4</option>
+              <option value="1">5</option>
+            </select>
+            <button class="next-product js">Next</button>
+          </div>
+
+          <div class="shop-chant">uShop Express</div>
+          <div class="added-to-cart-message">Product added to cart successfully</div>
+          <button class="add-to-cart-btn">Add to cart</button>
+        </div>
+
+        <div class="product-container">
+          <div class="image-container">
+            <img src="images/learners-keyboard-piano.jpg" alt="keyboard" class="product-image">
+          </div>
+
+          <div class="product-name">
+          54 Keys Learners XY-813 Keyboard Piano  
+          </div>
+
+          <div class="product-price">51.86</div>
+
+          <div class="old-price">54.00</div>
+
+          <div class="product-rating-container">
+            <img src="images/icons/product-rating-45.png" alt="ratings" class="rating-stars">
+            <div class="product-rating-count">(23)</div>
+          </div>
+          
+          <div class="select-product-quantity">
+            <div class="items-left">1 item left</div>
+            <select>
+              <option value="1">1</option>
+              <option value="1">2</option>
+              <option value="1">3</option>
+              <option value="1">4</option>
+              <option value="1">5</option>
+            </select>
+            <button class="next-product js">Next</button>
+          </div>
+
+          <div class="shop-chant">uShop Express</div>
+          
+          <div class="added-to-cart-message">Product added to cart successfully</div>
+
+          <button class="add-to-cart-btn">Add to cart</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="scripts/products.js"></script>
+    <script src="scripts/u-shop.js"></script>
+  </body>
+</html>
