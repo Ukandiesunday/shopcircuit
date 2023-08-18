@@ -186,7 +186,8 @@ const product = [{
   priceCent:9452,
   oldpriceCent:1021,
   rating:{stars:4.5, count:322},
-  itemsLeft:1,
+  itemsLeft:1
 }
-]
+];
+
 
