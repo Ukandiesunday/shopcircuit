@@ -3,7 +3,7 @@ const product = [{
   image:"images/men's-sneakers-khaki.jpg",
   name:"Men's Breathable Lace up Sneakers - Khaki",
   priceCent:1193,
-  oldPriceCent:1272,
+  oldpriceCent:1272,
   rating:{stars:4.5, count:137},
   itemLeft:6,
 },
@@ -30,10 +30,10 @@ const product = [{
 
 {
   id:"id4",
-  image:"images/acoustic-guitar",
+  image:"images/acoustic-guitar.jpg",
   name:"Acoustic Box Guitar-Black 38",
   priceCent:3552,
-  oldPriceCent:3652,
+  oldpriceCent:3652,
   rating:{
   stars:4.5, count:22},
   itemLeft:2,
@@ -42,11 +42,11 @@ const product = [{
 {
   id:"id5",
   image:"images/molten-basket-ball.jpg",
-  name:"Molten NBA Professional Basket Ball",
-  priceCent:15211,
-  oldpricCent:17299, 
+  name:"Molten NBA Pro Basket Ball",
+  priceCent:1981,
+  oldpriceCent:2091, 
   rating:{stars:4.5, count:29},
-  itemLeft:1,
+  itemLeft:2,
   },
 
 {
@@ -56,27 +56,27 @@ const product = [{
   priceCent:5186,
   oldpriceCent:5386,
   rating:{stars:4.5, count:97},
-  itemLeft:1,
+  itemLeft:3,
 },
 
 {
   id:"id7", 
   image:"images/keyboard-sustain-pedal.jpg", 
-  name:"Sustain Pedal Keyboard Foot Damper piano",
+  name:"Sustain Pedal Keyboard piano",
   priceCent:868,
   oldpriceCent:911,
   rating:{stars:4.5, count:5},
-  itemLeft:1,
+  itemLeft:2,
 },
 
 {
   id:"id8", 
-  image:"imges/black-leather-bag.jpg", 
+  image:"images/black-leather-bag.jpg", 
   name:"Pu Women leader Hand Bag-Black",
   priceCent:506,
   oldpriceCent:606,
   rating:{stars:4.0, count:31},
-  itemLeft:1,
+  itemLeft:3,
 },
 
 {
@@ -101,32 +101,32 @@ const product = [{
 
 {
   id:"id11", 
-  image:"images/celebrety-outfit.jpg", 
+  image:"images/celebrety-outfit.jpeg", 
   name:"Celebrety Outfit Wears ",
   priceCent:945,
   oldpriceCent:102,
   rating:{stars:4.5, count:9},
-  itemLeft:1,
-},
-
-{
-  id:"id12", 
-  image:"images/bue-shoe", 
-  name:"Unisex Blue Shoe for Out door Fits",
-  priceCent:567,
-  oldpriceCent:589,
-  rating:{stars:4.5, count:3},
   itemLeft:2,
 },
 
 {
+  id:"id12", 
+  image:"images/blue-shoe.jpg", 
+  name:"Unisex Blue Shoe for Out door Fits",
+  priceCent:567,
+  oldpriceCent:589,
+  rating:{stars:4.5, count:3},
+  itemLeft:4,
+},
+
+{
   id:"id13", 
-  image:"images/mobile-assessories.png", 
-  name:"Mobile Assessories ",
-  priceCent:3323,
-  oldpriceCent:3544,
+  image:"images/men's-sleeveless.jpg", 
+  name:"Men's Sleeveless 3 in 1 Shirts ",
+  priceCent:2234,
+  oldpriceCent:2355,
   rating:{stars:4.0, count:31},
-  itemLeft:8,
+  itemLeft:5,
 },
 
 {
@@ -172,7 +172,7 @@ const product = [{
 {
   id:"id18", 
   image:"images/white-sneakers.jpg", 
-  name:"Men's Casual Air-Cushion Sneakers-White",
+  name:"Men's Casual Sneakers-White",
   priceCent:9452,
   oldpriceCent:1021,
   rating:{stars:4.5, count:322},
