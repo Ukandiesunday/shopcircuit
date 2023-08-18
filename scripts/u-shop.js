@@ -1,6 +1,6 @@
 
 let productHTML = "";
-product.forEach((procuct)=>{
+product.forEach((product)=>{
  productHTML+=` 
     <div class="product-container">
 
@@ -16,14 +16,14 @@ product.forEach((procuct)=>{
   <div class="old-price">${(product.oldPriceCent)/100}</div>
 
   <div class="product-rating-container">
-    <img src="images/product-rating-stars.png" alt="ratings" class="rating-stars">
-    <div class="product-rating-count"></div>
+    <img src="images/product-rating-${(product.rating.stars)*10}" alt="ratings" class="rating-stars">
+    <div class="product-rating-count">${product.rating.count}</div>
   </div>
 
   
   <div class="select-product-quantity">
 
-    <div class="items-left">items left</div>
+    <div class="items-left">${itemLeft}items left</div>
     <select>
       <option selected value="1">1</option>
       <option value="1">2</option>
@@ -46,4 +46,5 @@ product.forEach((procuct)=>{
 })
 
 document.querySelector(".js-product-grid").innerHTML = productHTML;
-console.log(productHTML);
+
+
