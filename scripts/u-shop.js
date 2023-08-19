@@ -1,54 +1,62 @@
-
+ 
+import {cart} from "./cart.js"
+import {product} from "./products.js"
 let productHTML = "";
+
 product.forEach((product)=>{
  productHTML+=` 
-    <div class="product-container">
+  <div class="product-container">
 
-  <div class="image-container">
-    <img src="${product.image}" alt="khaki-sneakers" class="product-image">
-  </div>
+    <div class="image-container">
+      <img src="${product.image}" alt="khaki-sneakers" class="product-image">
+    </div>
 
-  <div class="product-name">
-      ${product.name} 
-  </div>
+    <div class="product-name">
+        ${product.name} 
+    </div>
 
-  <div class="product-price">$${(product.priceCent)/100}</div>
-  <div class="old-price">$${(product.oldpriceCent)/100}</div>
+    <div class="product-price">$${(product.priceCent)/100}</div>
+    <div class="old-price">$${(product.oldpriceCent)/100}</div>
 
-  <div class="product-rating-container">
-    <img src="images/icons/product-rating-${(product.rating.stars)*10}.png" alt="ratings" class="rating-stars">
-    <div class="product-rating-count">(${product.rating.count})</div>
-  </div>
+    <div class="product-rating-container">
+      <img src="images/icons/product-rating-${(product.rating.stars)*10}.png" alt="ratings" class="rating-stars">
+      <div class="product-rating-count">(${product.rating.count})</div>
+    </div>
 
-  
-  <div class="select-product-quantity">
+    
+    <div class="select-product-quantity">
 
-    <div class="items-left">${product.itemLeft}items left</div>
-    <select class="select-quantity">
-      <option selected value="1">1</option>
-      <option value="1">2</option>
-      <option value="1">3</option>
-      <option value="1">4</option>
-      <option value="1">5</option>
-    </select>
-    <button class="next-product">Next</button>
+      <div class="items-left">${product.itemLeft}items left</div>
 
-  </div>
+      <select class="select-quantity-${product.id}">
+        <option selected value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+      </select>
+      <button class="next-product">Next</button>
 
-  <div class="shop-chant">uShop Express</div>
+    </div>
 
-  <div class="added-to-cart-message">Product added to cart successfully</div>
+    <div class="shop-chant">uShop Express</div>
 
-  <button class="add-to-cart-btn js-add-to-cart-btn" const data-product-id = ${product.id}>Add to cart</button>
+    <div class="added-to-cart-message js-add-to-cart-message">Product added to cart successfully</div>
+
+    <button class="add-to-cart-btn js-add-to-cart-btn" const data-product-id = ${product.id}>Add to cart</button>
 
   </div>
  ` 
 });
+
 document.querySelector(".js-product-grid").innerHTML = productHTML;
 
 document.querySelectorAll(".js-add-to-cart-btn")
 .forEach((button)=>{
   button.addEventListener("click",()=>{
+    
     const productId = button.dataset.productId
     /*cart.push({
       productId:productId,
@@ -62,22 +70,39 @@ document.querySelectorAll(".js-add-to-cart-btn")
       sameItem = cartItem
       }
     })
-
+    
     if(sameItem){
     sameItem.quantity+=1
-    }else{
+      }else{
       cart.push({
       productId:productId,
       quantity:1
     })
-
     }
-    let quantity = 0;
+
+    let  totalQuantity = 0;
     cart.forEach((cart)=>{
-      quantity+=cart.quantity
+      totalQuantity += cart.quantity
+        document.querySelector(".cart-total-quantity").innerHTML = totalQuantity;
+      
     })
-  document.querySelector(".cart-total-quantity").innerHTML = quantity;
+     calculate();
+
+
   })
 })
+
+
+calculate();
+function calculate(){
+  let selectQty = 0;
+   document.querySelectorAll(".select-quantity").forEach((select)=>{
+    select.addEventListener("change",()=>{ 
+      selectQty += Number(select.value);
+      console.log(selectQty)
+      document.querySelector(".cart-total-quantity").innerHTML = selectQty;
+    })
+  })
+}
 
 

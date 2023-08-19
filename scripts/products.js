@@ -1,4 +1,6 @@
-const product = [{
+
+
+ export const product = [{
   id:"id1",
   image:"images/men's-sneakers-khaki.jpg",
   name:"Men's Breathable Lace up Sneakers - Khaki",
