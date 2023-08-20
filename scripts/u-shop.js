@@ -1,6 +1,7 @@
  
 import {cart} from "./cart.js"
 import {product} from "./products.js"
+
 let productHTML = "";
 
 product.forEach((product)=>{
@@ -28,22 +29,13 @@ product.forEach((product)=>{
 
       <div class="items-left">${product.itemLeft}items left</div>
 
-      <select class="select-quantity-${product.id}">
-        <option selected value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-      </select>
-      <button class="next-product">Next</button>
-
+     <div class="toggle-container">
+      <button class="decrease-btn js-decrease-btn-${product.id}">-</button>
+      <button class="increase-btn js-decrease-btn-${product.id}">+</button>
+    </div>
     </div>
 
     <div class="shop-chant">uShop Express</div>
-
-    <div class="added-to-cart-message js-add-to-cart-message">Product added to cart successfully</div>
 
     <button class="add-to-cart-btn js-add-to-cart-btn" const data-product-id = ${product.id}>Add to cart</button>
 
@@ -72,7 +64,8 @@ document.querySelectorAll(".js-add-to-cart-btn")
     })
     
     if(sameItem){
-    sameItem.quantity+=1
+      updateCart(sameItem);
+    //sameItem.quantity+=1
       }else{
       cart.push({
       productId:productId,
@@ -86,23 +79,34 @@ document.querySelectorAll(".js-add-to-cart-btn")
         document.querySelector(".cart-total-quantity").innerHTML = totalQuantity;
       
     })
-     calculate();
+    
+    
 
+
+    function updateCart(sameItem){
+      document.querySelectorAll(`.js-decrease-btn-${productId}`)
+      .forEach((button)=>{
+        button.addEventListener("click",()=>{
+          sameItem.quantity+=1
+    
+        })
+    
+      })
+    }
+
+    document.querySelectorAll(".js-add-to-cart-message").forEach((message)=>{
+      message.style.display="block";
+      setTimeout(()=>{
+      message.style.display="none";
+      },2000)
+    })
+          
 
   })
 })
 
 
-calculate();
-function calculate(){
-  let selectQty = 0;
-   document.querySelectorAll(".select-quantity").forEach((select)=>{
-    select.addEventListener("change",()=>{ 
-      selectQty += Number(select.value);
-      console.log(selectQty)
-      document.querySelector(".cart-total-quantity").innerHTML = selectQty;
-    })
-  })
-}
+
+
 
 
