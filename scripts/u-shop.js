@@ -1,5 +1,5 @@
  
-import {cart} from "./cart.js"
+import {cart, updateCart} from "./cart.js"
 import {product} from "./products.js"
 
 let productHTML = "";
@@ -54,24 +54,28 @@ document.querySelectorAll(".js-add-to-cart-btn")
       productId:productId,
       quantity:1})
       */
+      updateCart(productId)
+      // function updateCart(){
 
     //checking if productId in the product list is same as productId in the cart, to help us increase the quantity of cart. 
-      let sameItem;
-      cart.forEach((cartItem)=>{
-      if(productId === cartItem.productId){ 
-      sameItem = cartItem
-      }
-    })
+  //     let sameItem;
+  //     cart.forEach((cartItem)=>{
+  //     if(productId === cartItem.productId){ 
+  //     sameItem = cartItem
+  //     }
+  //   })
     
-    if(sameItem){
-      updateCart(sameItem);
-    //sameItem.quantity+=1
-      }else{
-      cart.push({
-      productId:productId,
-      quantity:1
-    })
-    }
+  //   if(sameItem){
+  //     updateCart(sameItem);
+  //   sameItem.quantity+=1
+  //     }else{
+  //     cart.push({
+  //     productId:productId,
+  //     quantity:1
+  //   })
+  //   }
+  // }
+
 
     let  totalQuantity = 0;
     cart.forEach((cart)=>{
@@ -81,18 +85,16 @@ document.querySelectorAll(".js-add-to-cart-btn")
     })
     
     
-
-
-    function updateCart(sameItem){
-      document.querySelectorAll(`.js-decrease-btn-${productId}`)
-      .forEach((button)=>{
-        button.addEventListener("click",()=>{
-          sameItem.quantity+=1
+    // function updateCart(sameItem){
+    //   document.querySelectorAll(`.js-increase-btn-${productId}`)
+    //   .forEach((button)=>{
+    //     button.addEventListener("click",()=>{
+    //       sameItem.quantity+=1
     
-        })
+    //     })
     
-      })
-    }
+    //   })
+    // }
 
     document.querySelectorAll(".js-add-to-cart-message").forEach((message)=>{
       message.style.display="block";
