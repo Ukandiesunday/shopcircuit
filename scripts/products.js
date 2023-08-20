@@ -158,7 +158,7 @@
   priceCent:434,
   oldpriceCent:455,
   rating:{stars:4.5, count:9},
-  itemLeft:1,
+  itemLeft:3,
 },
 
 {
@@ -178,7 +178,7 @@
   priceCent:9452,
   oldpriceCent:1021,
   rating:{stars:4.5, count:322},
-  itemLeft:1,
+  itemLeft:2,
 },
 
 {
@@ -188,7 +188,7 @@
   priceCent:9452,
   oldpriceCent:1021,
   rating:{stars:4.5, count:322},
-  itemsLeft:1
+  itemLeft:4
 }
 ];
 

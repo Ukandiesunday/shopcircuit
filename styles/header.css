@@ -48,6 +48,12 @@ body{
   border-radius:10px ;
 }
 
+.added-to-cart-message{
+  position: relative;
+  color:green;
+  display:none;
+  
+}
 .input-search{
   width:0;
   min-inline-size:60px ;
