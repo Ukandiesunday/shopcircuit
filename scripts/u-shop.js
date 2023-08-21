@@ -1,10 +1,11 @@
  
-import {cart, updateCart} from "./cart.js"
-import {product} from "./products.js"
+import {cart, updateCartForward, updateCartBackward,  displayCartTotalQty } from "./cart.js"
+
+import {products} from "./products.js"
 
 let productHTML = "";
 
-product.forEach((product)=>{
+products.forEach((product)=>{
  productHTML+=` 
   <div class="product-container">
 
@@ -27,11 +28,11 @@ product.forEach((product)=>{
     
     <div class="select-product-quantity">
 
-      <div class="items-left">${product.itemLeft}items left</div>
+      <div class="items-left">${product.unit} units left</div>
 
      <div class="toggle-container">
       <button class="decrease-btn js-decrease-btn-${product.id}">-</button>
-      <button class="increase-btn js-decrease-btn-${product.id}">+</button>
+      <button class="increase-btn js-increase-btn-${product.id}">+</button>
     </div>
     </div>
 
@@ -49,63 +50,57 @@ document.querySelectorAll(".js-add-to-cart-btn")
 .forEach((button)=>{
   button.addEventListener("click",()=>{
     
-    const productId = button.dataset.productId
-    /*cart.push({
-      productId:productId,
-      quantity:1})
-      */
-      updateCart(productId)
-      // function updateCart(){
+    const productId = button.dataset.productId;
 
-    //checking if productId in the product list is same as productId in the cart, to help us increase the quantity of cart. 
-  //     let sameItem;
-  //     cart.forEach((cartItem)=>{
-  //     if(productId === cartItem.productId){ 
-  //     sameItem = cartItem
-  //     }
-  //   })
+    updateCartForward(productId);
+
+    displayCartTotalQty();
     
-  //   if(sameItem){
-  //     updateCart(sameItem);
-  //   sameItem.quantity+=1
-  //     }else{
-  //     cart.push({
-  //     productId:productId,
-  //     quantity:1
-  //   })
-  //   }
-  // }
+    cartMessage();
 
 
-    let  totalQuantity = 0;
-    cart.forEach((cart)=>{
-      totalQuantity += cart.quantity
-        document.querySelector(".cart-total-quantity").innerHTML = totalQuantity;
-      
+    function cartMessage (){
+        document.querySelectorAll(".js-add-to-cart-message").forEach((message)=>{
+        message.style.display="block";
+        setTimeout(()=>{
+        message.style.display="none";
+        },2000)
+      })
+    }    
+    
+    button.style.display="none"
+
+   // To decrease cartQty from  minus (-) button
+   document.querySelectorAll(`.js-decrease-btn-${productId}`)
+    .forEach((decreaseBtn)=>{
+      decreaseBtn.addEventListener("click",()=>{
+
+        updateCartBackward(productId);
+
+        displayCartTotalQty()
+
+       })
+     
     })
     
-    
-    // function updateCart(sameItem){
-    //   document.querySelectorAll(`.js-increase-btn-${productId}`)
-    //   .forEach((button)=>{
-    //     button.addEventListener("click",()=>{
-    //       sameItem.quantity+=1
-    
-    //     })
-    
-    //   })
-    // }
 
-    document.querySelectorAll(".js-add-to-cart-message").forEach((message)=>{
-      message.style.display="block";
-      setTimeout(()=>{
-      message.style.display="none";
-      },2000)
+    // To increase cartQty from  plus (+) button instead
+    document.querySelectorAll(`.js-increase-btn-${productId}`)
+    .forEach((increaseBtn)=>{
+      increaseBtn.addEventListener("click",()=>{
+
+       updateCartForward(productId);
+
+       displayCartTotalQty();
+
+        cartMessage();
+      })
     })
-          
+
 
   })
 })
+
 
 
 

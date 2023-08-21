@@ -1,13 +1,13 @@
 
 
- export const product = [{
+ export const products = [{
   id:"id1",
   image:"images/men's-sneakers-khaki.jpg",
   name:"Men's Breathable Lace up Sneakers - Khaki",
   priceCent:1193,
   oldpriceCent:1272,
   rating:{stars:4.5, count:137},
-  itemLeft:6,
+  unit:6,
 },
 
 {
@@ -17,7 +17,7 @@
   priceCent:2206,
   oldpriceCent:2551,
   rating:{stars:4.0, count:108},
-  itemLeft:4,
+  unit:4,
 },
 
 {
@@ -27,7 +27,7 @@
   priceCent:768,
   oldpriceCent:813,
   rating:{stars:4.0, count:47},
-  itemLeft:2,
+  unit:2,
 },
 
 {
@@ -38,7 +38,7 @@
   oldpriceCent:3652,
   rating:{
   stars:4.5, count:22},
-  itemLeft:2,
+  unit:2,
 },
 
 {
@@ -48,7 +48,7 @@
   priceCent:1981,
   oldpriceCent:2091, 
   rating:{stars:4.5, count:29},
-  itemLeft:2,
+  unit:2,
   },
 
 {
@@ -58,7 +58,7 @@
   priceCent:5186,
   oldpriceCent:5386,
   rating:{stars:4.5, count:97},
-  itemLeft:3,
+  unit:3,
 },
 
 {
@@ -68,7 +68,7 @@
   priceCent:868,
   oldpriceCent:911,
   rating:{stars:4.5, count:5},
-  itemLeft:2,
+  unit:2,
 },
 
 {
@@ -78,7 +78,7 @@
   priceCent:506,
   oldpriceCent:606,
   rating:{stars:4.0, count:31},
-  itemLeft:3,
+  unit:3,
 },
 
 {
@@ -88,7 +88,7 @@
   priceCent:2095,
   oldpriceCent:2195,
   rating:{stars:4.5, count:34},
-  itemLeft:2,
+  unit:2,
 },
 
 {
@@ -98,7 +98,7 @@
   priceCent:2204,
   oldpriceCent:2304,
   rating:{stars:4.5, count:2},
-  itemLeft:3,
+  unit:3,
 },
 
 {
@@ -108,7 +108,7 @@
   priceCent:945,
   oldpriceCent:102,
   rating:{stars:4.5, count:9},
-  itemLeft:2,
+  unit:2,
 },
 
 {
@@ -118,7 +118,7 @@
   priceCent:567,
   oldpriceCent:589,
   rating:{stars:4.5, count:3},
-  itemLeft:4,
+  unit:4,
 },
 
 {
@@ -128,7 +128,7 @@
   priceCent:2234,
   oldpriceCent:2355,
   rating:{stars:4.0, count:31},
-  itemLeft:5,
+  unit:5,
 },
 
 {
@@ -138,7 +138,7 @@
   priceCent:555,
   oldpriceCent:567,
   rating:{stars:4.5, count:23},
-  itemLeft:5,
+  unit:5,
 },
 
 {
@@ -148,7 +148,7 @@
   priceCent:123,
   oldpriceCent:132,
   rating:{stars:4.0, count:11},
-  itemLeft:5,
+  unit:5,
 },
 
 {
@@ -158,7 +158,7 @@
   priceCent:434,
   oldpriceCent:455,
   rating:{stars:4.5, count:9},
-  itemLeft:3,
+  unit:3,
 },
 
 {
@@ -168,7 +168,7 @@
   priceCent:477,
   oldpriceCent:588,
   rating:{stars:4.0, count:4},
-  itemLeft:4,
+  unit:4,
 },
 
 {
@@ -178,7 +178,7 @@
   priceCent:9452,
   oldpriceCent:1021,
   rating:{stars:4.5, count:322},
-  itemLeft:2,
+  unit:2,
 },
 
 {
@@ -188,7 +188,7 @@
   priceCent:9452,
   oldpriceCent:1021,
   rating:{stars:4.5, count:322},
-  itemLeft:4
+  unit:4
 }
 ];
 
