@@ -17,9 +17,11 @@ products.forEach((product)=>{
         ${product.name} 
     </div>
 
+    <div class"price-container">
     <div class="product-price">$${(product.priceCent)/100}</div>
     <div class="old-price">$${(product.oldpriceCent)/100}</div>
-
+    
+    </div>
     <div class="product-rating-container">
       <img src="images/icons/product-rating-${(product.rating.stars)*10}.png" alt="ratings" class="rating-stars">
       <div class="product-rating-count">(${product.rating.count})</div>
@@ -28,9 +30,9 @@ products.forEach((product)=>{
     
     <div class="select-product-quantity">
 
-      <div class="items-left">${product.unit} units left</div>
+      <div class="units-left">${product.unit} units left</div>
 
-     <div class="toggle-container">
+     <div class="toggle-container js-toggle-${product.id}">
       <button class="decrease-btn js-decrease-btn-${product.id}">-</button>
       <button class="increase-btn js-increase-btn-${product.id}">+</button>
     </div>
@@ -69,6 +71,8 @@ document.querySelectorAll(".js-add-to-cart-btn")
     }    
     
     button.style.display="none"
+
+    document.querySelector(`.js-toggle-${productId}`).style.opacity = "1"
 
    // To decrease cartQty from  minus (-) button
    document.querySelectorAll(`.js-decrease-btn-${productId}`)
