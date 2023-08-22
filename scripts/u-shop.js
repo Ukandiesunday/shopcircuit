@@ -58,14 +58,15 @@ document.querySelectorAll(".js-add-to-cart-btn")
 
     displayCartTotalQty();
     
-    cartMessage();
+    addMessage();
 
 
-    function cartMessage (){
+    function addMessage (){
         document.querySelectorAll(".js-add-to-cart-message").forEach((message)=>{
         message.style.display="block";
         setTimeout(()=>{
         message.style.display="none";
+
         },2000)
       })
     }    
@@ -81,8 +82,8 @@ document.querySelectorAll(".js-add-to-cart-btn")
 
         updateCartBackward(productId);
 
-        displayCartTotalQty()
-
+        displayCartTotalQty();
+        
        })
      
     })
@@ -97,7 +98,7 @@ document.querySelectorAll(".js-add-to-cart-btn")
 
        displayCartTotalQty();
 
-        cartMessage();
+        addMessage();
       })
     })
 
@@ -105,9 +106,7 @@ document.querySelectorAll(".js-add-to-cart-btn")
   })
 })
 
-
-
-
+ 
 
 
 

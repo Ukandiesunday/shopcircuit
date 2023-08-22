@@ -6,19 +6,21 @@ body{
 .main{
    padding-top:130px; 
   margin-inline:15px;
+
 }
 
   .container{
+display: flex;
 background-color: rgb(181, 46, 46);
  position:relative;
- width: 85vmin;
+ width: 90vmin;
  transform:translate(-50%, -50%);
- bottom:-130px;
+ bottom:-60px;
  left:50%;
  overflow: hidden;
  border:20px solid black;
  border-radius:8px;
- box-shadow:10px 25px 0px white; 
+ max-height:180px ;
 
 } 
 
@@ -27,6 +29,7 @@ width:100%;
 display:flex;
 animation:slide 18s infinite;
 margin: auto;
+height: auto;
 }
 
 .wrapper img{
@@ -73,7 +76,7 @@ margin: auto;
   padding-block:5px;
   padding-inline:20px;
   width:205px;
-  height: 400px;
+  height: 350px;
   box-shadow:0px 4px 8px 0px rgb(199, 180, 180)
    ,0 4px 4px 0 rgb(237, 222, 222);
   border-radius:12px;
@@ -129,16 +132,16 @@ color:antiquewhite;
 
 .rating-stars{
 width:100px;
-margin-bottom:6px;
+margin-bottom: 2px;
 
 }
 .product-rating-container{
   position:relative;
-  bottom:10px;
+  bottom:11px;
 }
 .product-rating-count{
   position:absolute;
-  bottom:12px;
+  bottom:4px;
   left:110px;
   margin-top:20px;
   color:antiquewhite;
@@ -180,7 +183,7 @@ margin-bottom:6px;
 
 
 .shop-chant{
-  margin-bottom:3px;
+  
   font-weight: 500;
   color:palevioletred;
   font-style:oblique;
