@@ -49,6 +49,7 @@ export function updateCartBackward(productId){
       })
     }
 
+
 }
 
 // To display cart total quantity on the page.
@@ -56,9 +57,13 @@ export function displayCartTotalQty(){
   let  totalQuantity = 0;
   cart.forEach((cart)=>{
     totalQuantity += cart.quantity
+
+    if(totalQuantity <= 0){
+      return false;
+    }
       document.querySelector(".cart-total-quantity").innerHTML = totalQuantity;   
   })
-
+console.log(cart);
 }
 
 
