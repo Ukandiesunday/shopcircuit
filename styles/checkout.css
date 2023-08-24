@@ -1,0 +1,148 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: 17px;
+}
+
+.main-checkout-grid{
+  padding-top:80px;
+}
+
+.header{
+  position:fixed;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  left:0;
+  right:0;
+  background-color:rgba(19 25 33);
+  padding:5px;
+}
+
+.header-left{
+margin-left:5rem;
+}
+
+.u-shop-logo{
+  font-size:14px;
+  font-weight:600px;
+  text-decoration: none;
+  width:100%;
+  color:rgb(236, 137, 7);
+  text-shadow:0 4px 3px  rgb(165, 97, 9)
+}
+
+
+.user-icon{
+  background-color: antiquewhite;
+  border-radius:50%;
+  margin-right:16px;
+  align-items: stretch;
+  margin-top:4px;
+
+}
+
+.header-right{
+  position:relative;
+  display:flex;
+  margin-right: 60px;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.cart-quantity{
+  color:white;
+  position:absolute;
+  right:9px;
+  top:-1px;
+  background-color:rgb(236 137 7);
+  padding:5px;
+  border-radius:50%;
+  font-weight:600;
+}
+.main-checkout-grid{
+  display:grid;
+  grid-template-columns:1fr;
+}
+.amount-container-grid{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  margin-bottom:20px;
+  background-color:#333D51;
+  padding:15px;
+}
+
+.product-container-grid{
+  display:grid;
+  grid-template-columns:220px 1fr;
+}
+
+.product-image-container{
+  width:150px;
+  height:auto;
+}
+
+.product-image{
+  width:100%;
+  height:auto;
+  object-fit:contain;
+}
+
+.product-description-container{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+
+}
+
+.shop-chant{
+  color:palevioletred;
+  font-style:oblique;
+  font-weight:500;
+}
+
+.update-container{
+  display:flex;
+  flex-direction:row;
+  gap:100px;
+  margin-top:30px;
+}
+
+.btn-container{
+  display:flex;
+  gap:40px;
+}
+
+.decrease-button, .increase-button{
+  padding-inline:13px;
+  padding-block:5px;
+  border-radius:4px;
+  background-color:rgb(236,137,7);
+  border:none;
+}
+
+.delete-container{
+  color:rgb(236, 137, 7)
+}
+/* .decrease-button,.increase-button:active{
+} */
+
+.checkout-button{
+  margin-left:100px;
+  margin-top:30px;
+  background-color: rgb(236, 137, 7);
+  color:white;
+  font-weight:600;
+  padding-inline:30px;
+  padding-block:8px;
+  border-radius:5px;
+  border:none;
+}
+
+
