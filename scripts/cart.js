@@ -1,4 +1,4 @@
- export const  cart = [{
+ export let  cart = [{
   productId: "id1",
   quantity:2,
 },
@@ -70,6 +70,28 @@ export function displayCartTotalQty(){
     }
       document.querySelector(".cart-total-quantity").innerHTML = totalQuantity;   
   })
+}
+
+/* pushing items to newCart while excluding items that don't match this 'productId' we get when clicking the remove button.
+ */
+
+
+
+ export function removeCart(productId){
+  let newCart = [];
+
+  cart.forEach((cartItem)=>{
+    cartItem.productId;
+
+    if(cartItem.productId !== productId){
+      newCart.push(cartItem);
+      
+    }
+
+  })
+
+  cart = newCart;
+  console.log(cart);
 }
 
 

@@ -92,7 +92,8 @@ margin-left:5rem;
 .container-grid{
   padding:10px;
   background-color:rgb(240,240,240);
-  box-shadow:0px 2px 2px 0px rgba(0,0,0,0.2),0 2px 2px 2px rgba(0,0,0,0.2);
+  box-shadow:0px 2px 2px 0px rgba(0,0,0,0.2),
+  0 2px 2px 2px rgba(0,0,0,0.2);
   margin-bottom:15px;
 }
 
@@ -136,7 +137,7 @@ margin-left:5rem;
   margin-top:25px;
 }
 
-.btn-container{
+.minus-plus-button-container{
   display:flex;
   gap:40px;
 }
@@ -154,11 +155,22 @@ margin-left:5rem;
 .delete-container{
   color:rgb(236, 137, 7)
 }
-/* .decrease-button,.increase-button:active{
-} */
+ .update-container{
+  margin-left:30px;
+ }
+
+.remove-button{
+  background-color:rgb(236,137,7);
+  color:white;
+  font-weight:600;
+  padding-inline:12px;
+  padding-block:8px;
+  border:none;
+  border-radius:5px;
+}
 
 .checkout-button{
-  margin-left:12rem;
+  margin-left:11rem;
   background-color: rgb(236, 137, 7);
   color:white;
   font-weight:600;

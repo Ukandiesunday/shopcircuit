@@ -32,7 +32,7 @@ products.forEach((product)=>{
 
       <div class="units-left">${product.unit} units left</div>
 
-     <div class="toggle-container js-toggle-${product.id}">
+     <div class="toggle-container js-toggle-button-${product.id}">
       <button class="decrease-btn js-decrease-btn-${product.id}">-</button>
       <button class="increase-btn js-increase-btn-${product.id}">+</button>
     </div>
@@ -73,9 +73,9 @@ document.querySelectorAll(".js-add-to-cart-btn")
     
     button.style.display="none"
 
-    document.querySelector(`.js-toggle-${productId}`).style.opacity = "1"
+    document.querySelector(`.js-toggle-button-${productId}`).style.opacity = "1"
 
-   // To decrease cartQty from  minus (-) button
+   // To decrease cartQty via  minus (-) button
    document.querySelectorAll(`.js-decrease-btn-${productId}`)
     .forEach((decreaseBtn)=>{
       decreaseBtn.addEventListener("click",()=>{
@@ -89,7 +89,7 @@ document.querySelectorAll(".js-add-to-cart-btn")
     })
     
 
-    // To increase cartQty from  plus (+) button instead
+    // To increase cartQty via  plus (+) button instead
     document.querySelectorAll(`.js-increase-btn-${productId}`)
     .forEach((increaseBtn)=>{
       increaseBtn.addEventListener("click",()=>{
