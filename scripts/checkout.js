@@ -17,8 +17,8 @@ cart.forEach((cartItem)=>{
  })
   checkoutHTML+=
   `
-  <div class="container-grid js-container-grid" 
-  data-product-id = "${matchingProduct.id}" >
+  <div class="container-grid 
+  js-container-grid-${matchingProduct.id}">
     <div class="product-container-grid">
 
       <div class="product-image-container">
@@ -65,9 +65,11 @@ document.querySelectorAll(".js-remove-button")
       const productId = remove.dataset.productId;
       removeCart(productId);
 
+    /* we use 'productId' for the DOM class instead, cause we have it already when we click the remove button*/
+  
       const container = document.querySelector
-      (".js-container-grid");
-      
+      (`.js-container-grid-${productId}`);
+      container.remove();
       
     })
   })

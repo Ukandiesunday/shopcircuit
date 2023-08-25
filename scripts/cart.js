@@ -1,11 +1,23 @@
- export let  cart = [{
-  productId: "id1",
-  quantity:2,
-},
-  {
-  productId:"id2",
-  quantity:1
-}];
+ export let  cart = JSON.parse(localStorage.getItem("cart")) ||
+  [{
+    productId: "id1",
+    quantity:2,
+  },
+    {
+    productId:"id2",
+    quantity:1
+  }];
+ 
+
+ 
+
+
+function saveToStorage(){
+localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+
+
 
 export function updateCartForward(productId){
 
@@ -34,6 +46,7 @@ export function updateCartForward(productId){
       })
     }
    
+    saveToStorage();
 }
 
 
@@ -55,7 +68,7 @@ export function updateCartBackward(productId){
       quantity:1
       })
     }
-
+    saveToStorage();
 
 }
 
@@ -70,6 +83,8 @@ export function displayCartTotalQty(){
     }
       document.querySelector(".cart-total-quantity").innerHTML = totalQuantity;   
   })
+
+  saveToStorage();
 }
 
 /* pushing items to newCart while excluding items that don't match this 'productId' we get when clicking the remove button.
@@ -91,7 +106,8 @@ export function displayCartTotalQty(){
   })
 
   cart = newCart;
-  console.log(cart);
+
+  saveToStorage();
 }
 
 
