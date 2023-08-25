@@ -1,4 +1,11 @@
- export const  cart = [];
+ export const  cart = [{
+  productId: "id1",
+  quantity:2,
+},
+  {
+  productId:"id2",
+  quantity:1
+}];
 
 export function updateCartForward(productId){
 
@@ -63,7 +70,6 @@ export function displayCartTotalQty(){
     }
       document.querySelector(".cart-total-quantity").innerHTML = totalQuantity;   
   })
-console.log(cart);
 }
 
 
