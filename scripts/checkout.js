@@ -15,6 +15,7 @@ cart.forEach((cartItem)=>{
     matchingProduct = product
   }
  })
+ 
   checkoutHTML+=
   `
   <div class="container-grid 
@@ -44,7 +45,7 @@ cart.forEach((cartItem)=>{
   
     <div class="update-container">
 
-      <button class="remove-button  js-remove-button"    data-product-id = "${matchingProduct.id}">REMOVE</button>
+      <button class="remove-button  js-remove-button" data-product-id = "${matchingProduct.id}">REMOVE</button>
 
       <div class="minus-plus-button-container">
         <button class="decrease-button">-</button>
@@ -56,20 +57,21 @@ cart.forEach((cartItem)=>{
   </div>
   `
 })
-
 document.querySelector(".js-wrapper").innerHTML= checkoutHTML
 
+
 document.querySelectorAll(".js-remove-button")
-  .forEach((remove)=>{
-    remove.addEventListener("click",()=>{
-      const productId = remove.dataset.productId;
-      removeCart(productId);
+  .forEach((removeBtn)=>{
+   removeBtn.addEventListener("click",()=>{
+      const productId = removeBtn.dataset.productId;
+       removeCart(productId);
+       console.log(cart);
 
     /* we use 'productId' for the DOM class instead, cause we have it already when we click the remove button*/
   
       const container = document.querySelector
       (`.js-container-grid-${productId}`);
-      container.remove();
+       container.remove();
       
     })
   })

@@ -1,23 +1,15 @@
- export let  cart = JSON.parse(localStorage.getItem("cart")) ||
-  [{
+ export let  cart = JSON.parse(localStorage.getItem("cart")) || [{
     productId: "id1",
-    quantity:2,
+    quantity:2
   },
     {
     productId:"id2",
     quantity:1
   }];
- 
 
- 
-
-
-function saveToStorage(){
-localStorage.setItem("cart", JSON.stringify(cart));
-}
-
-
-
+ function saveToStorage(){
+  localStorage.setItem("cart", JSON.stringify(cart));
+ }
 
 export function updateCartForward(productId){
 
@@ -45,10 +37,10 @@ export function updateCartForward(productId){
       quantity:1
       })
     }
-   
-    saveToStorage();
-}
 
+    saveToStorage();
+    
+}
 
 //To update cart backward
 export function updateCartBackward(productId){
@@ -68,46 +60,30 @@ export function updateCartBackward(productId){
       quantity:1
       })
     }
+
     saveToStorage();
-
 }
 
-// To display cart total quantity on the page.
-export function displayCartTotalQty(){
-  let  totalQuantity = 0;
-  cart.forEach((cart)=>{
-    totalQuantity += cart.quantity
 
-    if(totalQuantity <= 0){
-      return false;
-    }
-      document.querySelector(".cart-total-quantity").innerHTML = totalQuantity;   
-  })
-
-  saveToStorage();
-}
 
 /* pushing items to newCart while excluding items that don't match this 'productId' we get when clicking the remove button.
  */
 
-
-
+ 
  export function removeCart(productId){
-  let newCart = [];
-
+  const newCart = [];
   cart.forEach((cartItem)=>{
-    cartItem.productId;
+    cartItem.productId
 
     if(cartItem.productId !== productId){
-      newCart.push(cartItem);
-      
+       newCart.push(cartItem);
     }
 
+     cart = newCart;
   })
-
-  cart = newCart;
-
-  saveToStorage();
+ 
+saveToStorage();
+ 
 }
 
 

@@ -1,7 +1,25 @@
  
-import {cart, updateCartForward, updateCartBackward,  displayCartTotalQty } from "./cart.js"
+import {cart, updateCartForward, updateCartBackward} from "./cart.js"
 
 import {products} from "./products.js"
+
+
+// To display cart total quantity on the page.
+export function displayCartTotalQty(){
+  let  totalQuantity = 0;
+  cart.forEach((cart)=>{
+    totalQuantity += cart.quantity
+
+    if(totalQuantity <= 0){
+
+      return false
+      
+    }
+    document.querySelector(".cart-total-quantity").innerHTML = totalQuantity; 
+  })
+
+}
+
 
 let productHTML = "";
 
@@ -76,6 +94,7 @@ document.querySelectorAll(".js-add-to-cart-btn")
     document.querySelector(`.js-toggle-button-${productId}`).style.opacity = "1"
 
    // To decrease cartQty via  minus (-) button
+
    document.querySelectorAll(`.js-decrease-btn-${productId}`)
     .forEach((decreaseBtn)=>{
       decreaseBtn.addEventListener("click",()=>{
