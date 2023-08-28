@@ -1,5 +1,6 @@
-import {cart, removeCart} from "./cart.js"
-import {products} from "./products.js"
+import {cart, removeCart} from "./cart.js";
+import {products} from "./products.js";
+
 
 let checkoutHTML = "";
 
@@ -15,10 +16,10 @@ cart.forEach((cartItem)=>{
     matchingProduct = product
   }
  })
- 
+
   checkoutHTML+=
   `
-  <div class="container-grid 
+  <div class="items-container
   js-container-grid-${matchingProduct.id}">
     <div class="product-container-grid">
 
@@ -51,13 +52,53 @@ cart.forEach((cartItem)=>{
         <button class="decrease-button">-</button>
         <button class="increase-button">+</button>
       </div>
+    </div>
+  </div>
 
+ `
+})
+
+
+document.querySelector(".js-checkout-summary")
+.innerHTML =
+`   
+  <div class="order-summary-wrapper">
+    <div class="order-summary-container">
+      <h2 class="order-summary-heading">Order Summary</h2>
+      <div class="order-summary">
+        <div class="items-description">Items (3):</div>
+        <div class="items-price">$42.75</div>
+      </div>
+    
+      <div class="order-summary">
+        <div class="items-description">Shipping & handling:</div>
+        <div class="items-price">$4.99</div>
+      </div>
+    
+      <div class="order-summary">
+        <div class="items-description">Total before tax:</div>
+        <div class="items-price">$47.74</div>
+      </div>
+    
+      <div class="order-summary">
+        <div class="items-description">Estimated tax (10%):</div>
+        <div class="items-price">$34.34</div>
+      </div>
+    
     </div>
     
+    <div class="total-amount">Total Amount</div>
+    
+    <div class="total-price-container">
+      <button class="checkout-button">CHECKOUT ($11.93)
+      </button>
+    </div> 
   </div>
   `
-})
-document.querySelector(".js-wrapper").innerHTML= checkoutHTML
+
+
+
+document.querySelector(".js-checkout-wrapper").innerHTML= checkoutHTML
 
 
 document.querySelectorAll(".js-remove-button")
@@ -65,13 +106,15 @@ document.querySelectorAll(".js-remove-button")
    removeBtn.addEventListener("click",()=>{
       const productId = removeBtn.dataset.productId;
        removeCart(productId);
-       console.log(cart);
+      
 
     /* we use 'productId' for the DOM class instead, cause we have it already when we click the remove button*/
   
       const container = document.querySelector
       (`.js-container-grid-${productId}`);
-       container.remove();
+        container.remove();
       
     })
-  })
+  }) 
+
+ 

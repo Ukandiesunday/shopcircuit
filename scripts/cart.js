@@ -1,4 +1,4 @@
- export let  cart = JSON.parse(localStorage.getItem("cart")) || [{
+  export let  cart = JSON.parse(localStorage.getItem("cart")) || [{
     productId: "id1",
     quantity:2
   },
@@ -38,7 +38,7 @@ export function updateCartForward(productId){
       })
     }
 
-    saveToStorage();
+     saveToStorage();
     
 }
 
@@ -61,7 +61,7 @@ export function updateCartBackward(productId){
       })
     }
 
-    saveToStorage();
+     saveToStorage();
 }
 
 
@@ -81,8 +81,8 @@ export function updateCartBackward(productId){
 
      cart = newCart;
   })
- 
-saveToStorage();
+  console.log(cart);
+ saveToStorage();
  
 }
 
