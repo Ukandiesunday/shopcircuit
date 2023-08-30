@@ -1,5 +1,14 @@
-import {cart, removeCart} from "./cart.js";
+import {cart, removeFromCart} from "./cart.js";
 import {products} from "./products.js";
+import { calculateMoney, calcInitialPrice, calcTax, calcTotalPrice} from "./utility/money.js";
+
+let checkoutCartQty = 0;
+cart.forEach((cartItem)=>{
+ checkoutCartQty += cartItem.quantity
+})
+
+
+
 
 
 let checkoutHTML = "";
@@ -9,13 +18,14 @@ let matchingProduct;
 cart.forEach((cartItem)=>{
  const productId = cartItem.productId
 
-// using id from cart to match id from products in order to get full details of each product from "products array".
+  // using id from cart to match id from products in order to get full details of each product from "products array".
 
  products.forEach((product)=>{
   if(productId === product.id){
     matchingProduct = product
   }
  })
+
 
   checkoutHTML+=
   `
@@ -27,13 +37,16 @@ cart.forEach((cartItem)=>{
         <img src="${matchingProduct.image}" alt="khaki-shoe" width="100" height="100" class="product-image">
       </div>
 
+
       <div class="product-description-container">
 
         <div class="product-name">${matchingProduct.name}</div>
 
-        <div class="product-price">$${(matchingProduct.priceCent) /100}</div>
+        <div class="product-price">$${calculateMoney(matchingProduct.priceCent)}</div>
 
-        <div class="product-oldprice">$${(matchingProduct.oldpriceCent) /100}</div>
+        <div class = "quantity-price">$${cartItem.quantity*matchingProduct.priceCent/100}</div>
+
+        <div class="product-oldprice">$${calculateMoney(matchingProduct.oldpriceCent)}</div>
 
         <div class="quantity">quantity: ${cartItem.quantity}</div>
 
@@ -59,6 +72,27 @@ cart.forEach((cartItem)=>{
 })
 
 
+let priceCent = 0;
+cart.forEach((cartItem)=>{
+  cartItem.productId;
+  products.forEach((product)=>{
+    product.id
+   if(product.id === cartItem.productId){
+   priceCent += product.priceCent*(cartItem.Quantity);
+    
+
+   }
+   
+  
+     })
+
+     console.log(priceCent);
+
+})
+ 
+   
+  
+
 document.querySelector(".js-checkout-summary")
 .innerHTML =
 `   
@@ -66,8 +100,8 @@ document.querySelector(".js-checkout-summary")
     <div class="order-summary-container">
       <h2 class="order-summary-heading">Order Summary</h2>
       <div class="order-summary">
-        <div class="items-description">Items (3):</div>
-        <div class="items-price">$42.75</div>
+        <div class="items-description">Items (${checkoutCartQty}):</div>
+        <div class="items-price">$${calcInitialPrice(priceCent*checkoutCartQty)}</div>
       </div>
     
       <div class="order-summary">
@@ -77,26 +111,29 @@ document.querySelector(".js-checkout-summary")
     
       <div class="order-summary">
         <div class="items-description">Total before tax:</div>
-        <div class="items-price">$47.74</div>
+        <div class="items-price">$${calcInitialPrice(priceCent)}</div>
       </div>
     
       <div class="order-summary">
         <div class="items-description">Estimated tax (10%):</div>
-        <div class="items-price">$34.34</div>
+        <div class="items-price">$${calcTax(priceCent)}</div>
       </div>
     
     </div>
     
-    <div class="total-amount">Total Amount</div>
-    
+    <div class="total-amount-container">
+      <div class="total-amount">Cost of product after tax</div>
+      <div class"items-price">$${calcTotalPrice(priceCent)}</div>
+    </div>
+
     <div class="total-price-container">
-      <button class="checkout-button">CHECKOUT ($11.93)
+      <button class="checkout-button">PLACE ORDER
       </button>
     </div> 
   </div>
   `
-
-
+  
+document.querySelector(".cart-total-quantity").innerHTML = checkoutCartQty;
 
 document.querySelector(".js-checkout-wrapper").innerHTML= checkoutHTML
 
@@ -105,11 +142,10 @@ document.querySelectorAll(".js-remove-button")
   .forEach((removeBtn)=>{
    removeBtn.addEventListener("click",()=>{
       const productId = removeBtn.dataset.productId;
-       removeCart(productId);
+       removeFromCart(productId);
       
 
     /* we use 'productId' for the DOM class instead, cause we have it already when we click the remove button*/
-  
       const container = document.querySelector
       (`.js-container-grid-${productId}`);
         container.remove();

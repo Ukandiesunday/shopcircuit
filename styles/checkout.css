@@ -60,8 +60,18 @@ body{
   object-fit:contain;
 }
 
+.quantity-price{
+  text-align: right;
+  color: green;
+  position:relative;
+  font-weight: 700;
+  z-index:0;
+  
+}
+
 .product-oldprice{
   text-decoration: line-through;
+  margin-top:-25px
 }
 
 .product-description-container{

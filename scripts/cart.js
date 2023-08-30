@@ -69,8 +69,8 @@ export function updateCartBackward(productId){
 /* pushing items to newCart while excluding items that don't match this 'productId' we get when clicking the remove button.
  */
 
- 
- export function removeCart(productId){
+
+ export function removeFromCart(productId){
   const newCart = [];
   cart.forEach((cartItem)=>{
     cartItem.productId
@@ -78,12 +78,12 @@ export function updateCartBackward(productId){
     if(cartItem.productId !== productId){
        newCart.push(cartItem);
     }
-
+    
      cart = newCart;
+    
   })
-  console.log(cart);
- saveToStorage();
- 
+
+  saveToStorage();
 }
 
 
