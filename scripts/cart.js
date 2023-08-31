@@ -1,15 +1,11 @@
-  export let  cart = JSON.parse(localStorage.getItem("cart")) ||  [{
-    productId: "id1",
-    quantity:2
-  },
-    {
-    productId:"id2",
-    quantity:1
-  }];
+  export let  cart =   []
 
- function saveToStorage(){
-  localStorage.setItem("cart", JSON.stringify(cart));
- }
+  
+  // JSON.parse(localStorage.getItem("cart")) ||
+  
+//  function saveToStorage(){
+//   localStorage.setItem("cart", JSON.stringify(cart));
+//  }
 
 export function updateCartForward(productId){
 
@@ -21,47 +17,49 @@ export function updateCartForward(productId){
 
   //checking if productId in the product list is same as productId in the cart, to help us increase the cart quantity manually. That is, (update cart forward).
 
-  let sameItem;
+  // let sameItem;
 
-  cart.forEach((cartItem)=>{
-    if(productId === cartItem.productId){ 
-    sameItem = cartItem
-    }
-  })
+  // cart.forEach((cartItem)=>{
+  //   if(productId === cartItem.productId){ 
+  //   sameItem = cartItem
+  //   }
+  // })
   
-  if(sameItem){
-  sameItem.quantity+=1
-    }else{
-      cart.push({
-      productId:productId,
-      quantity:1
-      })
-    }
+  // if(sameItem){
+  // sameItem.quantity+=1
+  //   }else{
+  //     cart.push({
+  //     productId:productId,
+  //     quantity:1
+  //     })
+  //   }
+  console.log(cart);
+// If we can't find anything in the cart let's push to cart;
+  let searchItem = cart.find((cartItem)=>{
+    return cartItem.productId === productId
+  });
+  if(searchItem === undefined){
+    cart.push({
+    productId:productId,
+    quantity:1
+    });
+  }else{
+   searchItem.quantity += 1 ;
+  }
 
-     saveToStorage();
+    //  saveToStorage();
     
 }
 
-//To update cart backward
 export function updateCartBackward(productId){
-  let sameItem;
+  let searchItem = cart.find((cartItem)=> cartItem.productId === productId);
 
-  cart.forEach((cartItem)=>{
-    if(productId === cartItem.productId){ 
-    sameItem = cartItem
-    }
-  })
-  
-  if(sameItem){
-  sameItem.quantity-=1
-    }else{
-      cart.push({
-      productId:productId,
-      quantity:1
-      })
-    }
-
-     saveToStorage();
+  if(searchItem.quantity === 0)return;
+  else{
+   searchItem.quantity-=1 
+  }
+console.log(cart)
+    //  saveToStorage();
 }
 
 
@@ -70,21 +68,21 @@ export function updateCartBackward(productId){
  */
 
 
- export function removeFromCart(productId){
-  const newCart = [];
-  cart.forEach((cartItem)=>{
-    cartItem.productId
+//  export function removeFromCart(productId){
+//   const newCart = [];
+//   cart.forEach((cartItem)=>{
+//     cartItem.productId
 
-    if(cartItem.productId !== productId){
-       newCart.push(cartItem);
-    }
+//     if(cartItem.productId !== productId){
+//        newCart.push(cartItem);
+//     }
     
-     cart = newCart;
+//      cart = newCart;
     
-  })
+//   })
 
-  saveToStorage();
-}
+//   // saveToStorage();
+// }
 
 
 

@@ -6,15 +6,10 @@ import {products} from "./products.js"
 
 // To display cart total quantity on the page.
 
-   function displayCartTotalQty(){
+function updateCartTotalQty(){
   let  totalQuantity = 0;
   cart.forEach((cart)=>{
     totalQuantity += cart.quantity
-
-    if(totalQuantity <= 0){
-      return false
-    }
-
     document.querySelector(".cart-total-quantity").innerHTML = totalQuantity;
   })
   
@@ -25,7 +20,7 @@ let productHTML = "";
 
 products.forEach((product)=>{
 
-  let {id, image, name, priceCent, unit, oldpriceCent, rating, } = product
+  let {image, name, priceCent, unit, oldpriceCent, rating, } = product
  productHTML+=` 
   <div class="product-container">
 
@@ -52,15 +47,16 @@ products.forEach((product)=>{
 
       <div class="units-left">${unit} units left</div>
 
-     <div class="toggle-container js-toggle-button-${id}">
-      <button class="decrease-btn js-decrease-btn-${id}">-</button>
-      <button class="increase-btn js-increase-btn-${id}">+</button>
+     <div class="toggle-container js-toggle-button-${product.id}">
+      <button class="decrease-btn js-decrease-btn-${product.id}">-</button>
+      <div id ="${product.id}">0</div>
+      <button class="increase-btn js-increase-btn-${product.id}">+</button>
     </div>
     </div>
 
     <div class="shop-chant">uShop Express</div>
 
-    <button class="add-to-cart-btn js-add-to-cart-btn" const data-product-id = ${id}>Add to cart</button>
+    <button class="add-to-cart-btn js-add-to-cart-btn" const data-product-id = ${product.id}>Add to cart</button>
 
   </div>
  ` 
@@ -70,17 +66,12 @@ document.querySelector(".js-product-grid").innerHTML = productHTML;
 
 document.querySelectorAll(".js-add-to-cart-btn")
 .forEach((button)=>{
-  button.addEventListener("click",()=>{
-    
-    const productId = button.dataset.Id;
+  button.addEventListener("click",() => {
+    const productId = button.dataset.productId;
 
-    updateCartForward(productId);
+    updateCartTotalQty();
 
-    displayCartTotalQty();
-    
     addMessage();
-
-
     function addMessage (){
         document.querySelectorAll(".js-add-to-cart-message").forEach((message)=>{
         message.style.display="block";
@@ -102,7 +93,7 @@ document.querySelectorAll(".js-add-to-cart-btn")
 
         updateCartBackward(productId);
 
-        displayCartTotalQty();
+        updateCartTotalQty();
         
        })
      
