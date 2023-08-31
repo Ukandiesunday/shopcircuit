@@ -67,7 +67,7 @@ cart.forEach((cartItem)=>{
       </div>
     </div>
   </div>
-
+  </div>
  `
 })
 
@@ -78,7 +78,7 @@ cart.forEach((cartItem)=>{
   products.forEach((product)=>{
     product.id
    if(product.id === cartItem.productId){
-   priceCent += product.priceCent*(cartItem.Quantity);
+   priceCent += product.priceCent*(cartItem.quantity);
     
 
    }
@@ -101,7 +101,7 @@ document.querySelector(".js-checkout-summary")
       <h2 class="order-summary-heading">Order Summary</h2>
       <div class="order-summary">
         <div class="items-description">Items (${checkoutCartQty}):</div>
-        <div class="items-price">$${calcInitialPrice(priceCent*checkoutCartQty)}</div>
+        <div class="items-price">$${calcInitialPrice(priceCent)}</div>
       </div>
     
       <div class="order-summary">

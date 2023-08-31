@@ -7,6 +7,7 @@
     quantity:1
   }];
 
+  
  function saveToStorage(){
   localStorage.setItem("cart", JSON.stringify(cart));
  }
@@ -14,10 +15,10 @@
 export function updateCartForward(productId){
 
   // First push to cart.
-  /*cart.push({
-    productId:productId,
-    quantity:1
-    })*/
+  // cart.push({
+  //   productId:productId,
+  //   quantity:1
+  //   })
 
   //checking if productId in the product list is same as productId in the cart, to help us increase the cart quantity manually. That is, (update cart forward).
 
