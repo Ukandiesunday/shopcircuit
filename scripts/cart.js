@@ -1,4 +1,4 @@
-  export let  cart = JSON.parse(localStorage.getItem("cart")) || [{
+  export let  cart = JSON.parse(localStorage.getItem("cart")) ||  [{
     productId: "id1",
     quantity:2
   },
@@ -7,14 +7,13 @@
     quantity:1
   }];
 
-  
  function saveToStorage(){
   localStorage.setItem("cart", JSON.stringify(cart));
  }
 
 export function updateCartForward(productId){
 
-  // First push to cart.
+  //First push to cart.
   // cart.push({
   //   productId:productId,
   //   quantity:1
