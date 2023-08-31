@@ -1,11 +1,9 @@
-  export let  cart =   []
+   export let  cart = JSON.parse(localStorage.getItem("cart")) ||[]
 
-  
-  // JSON.parse(localStorage.getItem("cart")) ||
-  
-//  function saveToStorage(){
-//   localStorage.setItem("cart", JSON.stringify(cart));
-//  }
+ 
+ function saveToStorage(){
+  localStorage.setItem("cart", JSON.stringify(cart));
+ }
 
 export function updateCartForward(productId){
 
@@ -33,11 +31,11 @@ export function updateCartForward(productId){
   //     quantity:1
   //     })
   //   }
-  console.log(cart);
+  
 // If we can't find anything in the cart let's push to cart;
-  let searchItem = cart.find((cartItem)=>{
-    return cartItem.productId === productId
-  });
+  let searchItem = cart.find((cartItem)=>
+     cartItem.productId === productId
+  );
   if(searchItem === undefined){
     cart.push({
     productId:productId,
@@ -46,8 +44,8 @@ export function updateCartForward(productId){
   }else{
    searchItem.quantity += 1 ;
   }
-
-    //  saveToStorage();
+console.log(cart);
+     saveToStorage();
     
 }
 
@@ -59,30 +57,30 @@ export function updateCartBackward(productId){
    searchItem.quantity-=1 
   }
 console.log(cart)
-    //  saveToStorage();
+      saveToStorage();
 }
 
-
+ 
 
 /* pushing items to newCart while excluding items that don't match this 'productId' we get when clicking the remove button.
  */
 
 
-//  export function removeFromCart(productId){
-//   const newCart = [];
-//   cart.forEach((cartItem)=>{
-//     cartItem.productId
+ export function removeFromCart(productId){
+  const newCart = [];
+  cart.forEach((cartItem)=>{
+    cartItem.productId
 
-//     if(cartItem.productId !== productId){
-//        newCart.push(cartItem);
-//     }
+    if(cartItem.productId !== productId){
+       newCart.push(cartItem);
+    }
     
-//      cart = newCart;
-    
-//   })
+     cart = newCart;
+    // updateCartBackward();
+  })
 
-//   // saveToStorage();
-// }
+   saveToStorage();
+}
 
 
 

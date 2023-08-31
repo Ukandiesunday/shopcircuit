@@ -8,12 +8,24 @@ import {products} from "./products.js"
 
 function updateCartTotalQty(){
   let  totalQuantity = 0;
-  cart.forEach((cart)=>{
-    totalQuantity += cart.quantity
+  cart.forEach((cartItem)=>{
+    totalQuantity += cartItem.quantity
     document.querySelector(".cart-total-quantity").innerHTML = totalQuantity;
   })
   
 }
+
+update();
+function update(productId){
+  let searchItem = cart.find((cartItem) =>
+    cartItem.productId === productId
+   )
+   if(searchItem){
+    document.getElementById(`update-${productId}`).innerHTML= 
+    searchItem.quantity
+   }
+ }
+;
 
 
 let productHTML = "";
@@ -49,7 +61,7 @@ products.forEach((product)=>{
 
      <div class="toggle-container js-toggle-button-${product.id}">
       <button class="decrease-btn js-decrease-btn-${product.id}">-</button>
-      <div id ="${product.id}">0</div>
+      <div class="update" id="update-${product.id}">0</div>
       <button class="increase-btn js-increase-btn-${product.id}">+</button>
     </div>
     </div>
@@ -68,7 +80,7 @@ document.querySelectorAll(".js-add-to-cart-btn")
 .forEach((button)=>{
   button.addEventListener("click",() => {
     const productId = button.dataset.productId;
-
+    
     updateCartTotalQty();
 
     addMessage();
@@ -95,10 +107,16 @@ document.querySelectorAll(".js-add-to-cart-btn")
 
         updateCartTotalQty();
         
+        update(productId);
        })
      
     })
     
+    
+    
+
+
+
 
     // To increase cartQty via  plus (+) button instead
     document.querySelectorAll(`.js-increase-btn-${productId}`)
@@ -107,9 +125,10 @@ document.querySelectorAll(".js-add-to-cart-btn")
 
        updateCartForward(productId);
 
-       displayCartTotalQty();
+       updateCartTotalQty();
 
         addMessage();
+        update(productId);
       })
     })
 
@@ -118,6 +137,5 @@ document.querySelectorAll(".js-add-to-cart-btn")
 })
 
  
-
 
 

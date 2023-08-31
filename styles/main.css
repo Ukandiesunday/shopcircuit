@@ -181,9 +181,12 @@ margin-bottom: 2px;
   transform: scaleY(90%);
 }
 
+.update{
+  color:white;
+  font-weight: 700;
+}
 
 .shop-chant{
-  
   font-weight: 500;
   color:palevioletred;
   font-style:oblique;
