@@ -8,9 +8,6 @@ cart.forEach((cartItem)=>{
 })
 
 
-
-
-
 let checkoutHTML = "";
 
 let matchingProduct;
@@ -59,11 +56,13 @@ cart.forEach((cartItem)=>{
   
     <div class="update-container">
 
-      <button class="remove-button  js-remove-button" data-product-id = "${matchingProduct.id}">REMOVE</button>
+    <a href="checkout.html">
+    <button class="remove-button  js-remove-button" data-product-id = "${matchingProduct.id}">REMOVE</button>
+    </a>
 
       <div class="minus-plus-button-container">
-        <button class="decrease-button">-</button>
-        <button class="increase-button">+</button>
+        <button id="decrease-button" class="decrease-button">-</button>
+        <button id="increase-button" class="increases-button">+</button>
       </div>
     </div>
   </div>
@@ -72,23 +71,32 @@ cart.forEach((cartItem)=>{
 })
 
 
-let priceCent = 0;
-cart.forEach((cartItem)=>{
-  cartItem.productId;
-  products.forEach((product)=>{
-    product.id
-   if(product.id === cartItem.productId){
-   priceCent += product.priceCent*(cartItem.quantity);
-    
+// update()
+// function update(productId){
+//   let searchItem = cart.find((cartItem) =>
+//     cartItem.productId === productId
+//    );
+//    if(searchItem){
+//     document.getElementById(`update-${productId}`).innerHTML= 
+//     searchItem.quantity;
+//    }
 
-   }
-   
+
   
-     })
+//  }
 
-     console.log(priceCent);
 
-})
+ let priceCent = 0;
+ cart.forEach((cartItem)=>{
+   cartItem.productId;
+   products.forEach((product)=>{
+     product.id
+    if(product.id === cartItem.productId){
+    priceCent += product.priceCent * cartItem.quantity;
+    }
+    
+      })
+ })
  
    
   
@@ -102,11 +110,6 @@ document.querySelector(".js-checkout-summary")
       <div class="order-summary">
         <div class="items-description">Items (${checkoutCartQty}):</div>
         <div class="items-price">$${calcInitialPrice(priceCent)}</div>
-      </div>
-    
-      <div class="order-summary">
-        <div class="items-description">Shipping & handling:</div>
-        <div class="items-price">$4.99</div>
       </div>
     
       <div class="order-summary">
@@ -127,8 +130,9 @@ document.querySelector(".js-checkout-summary")
     </div>
 
     <div class="total-price-container">
-      <button class="checkout-button">PLACE ORDER
-      </button>
+      
+  <a href="checkout.html"><button class="checkout-button">PLACE ORDER
+  </button></a>
     </div> 
   </div>
   `
@@ -143,13 +147,13 @@ document.querySelectorAll(".js-remove-button")
    removeBtn.addEventListener("click",()=>{
       const productId = removeBtn.dataset.productId;
        removeFromCart(productId);
-      
-
-    /* we use 'productId' for the DOM class instead, cause we have it already when we click the remove button*/
+       
+  
+    /* We target 'productId' from the remove button instead*/
       const container = document.querySelector
       (`.js-container-grid-${productId}`);
         container.remove();
-      
+        
     })
   }) 
 

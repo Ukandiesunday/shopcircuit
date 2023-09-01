@@ -1,13 +1,12 @@
  
-import {cart, updateCartForward, updateCartBackward} from "./cart.js"
+import {cart, updateCartForward, updateCartBackward} from "./cart.js";
+import {products} from "./products.js";
 
-import {products} from "./products.js"
-
-
-// To display cart total quantity on the page.
+// To render cart total quantity on the page.
 updateCartTotalQty();
 function updateCartTotalQty(){
   let  totalQuantity = 0;
+
   cart.forEach((cartItem)=>{
     totalQuantity += cartItem.quantity
     document.querySelector(".cart-total-quantity").innerHTML = totalQuantity;
@@ -15,17 +14,18 @@ function updateCartTotalQty(){
   
 }
 
-
+  // TO update each quantity in cart
 function update(productId){
   let searchItem = cart.find((cartItem) =>
     cartItem.productId === productId
-   )
+   );
    if(searchItem){
     document.getElementById(`update-${productId}`).innerHTML= 
-    searchItem.quantity
+    searchItem.quantity;
    }
- }
-;
+  
+}
+
 
 let productHTML = "";
 
@@ -77,6 +77,7 @@ products.forEach((product)=>{
 
 document.querySelector(".js-product-grid").innerHTML = productHTML;
 
+
 document.querySelectorAll(".js-add-to-cart-btn")
 .forEach((button)=>{
   button.addEventListener("click",() => {
@@ -104,32 +105,29 @@ document.querySelectorAll(".js-add-to-cart-btn")
     .forEach((decreaseBtn)=>{
       decreaseBtn.addEventListener("click",()=>{
 
+    
         updateCartBackward(productId);
-
-        updateCartTotalQty();
-        
-        update(productId);
+        update(productId)
+        updateCartTotalQty()
+       
        })
      
     })
     
     
-    
-
-
-
-
+  
     // To increase cartQty via  plus (+) button instead
     document.querySelectorAll(`.js-increase-btn-${productId}`)
     .forEach((increaseBtn)=>{
       increaseBtn.addEventListener("click",()=>{
 
-       updateCartForward(productId);
-
-       updateCartTotalQty();
-
-        addMessage();
+       
+      updateCartForward(productId)
         update(productId);
+        updateCartTotalQty();
+        addMessage();
+        
+       
       })
     })
 
