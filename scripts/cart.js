@@ -50,8 +50,8 @@ export function updateCartForward(productId){
 export function updateCartBackward(productId){
   let searchItem = cart.find((cartItem)=> cartItem.productId === productId);
 
-
-   if(searchItem.quantity === 0)return;
+if(searchItem === undefined)return;
+   else if(searchItem.quantity === 0)return;
   else{
    searchItem.quantity-=1 
   }
