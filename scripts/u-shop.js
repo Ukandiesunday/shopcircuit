@@ -5,7 +5,7 @@ import {products} from "./products.js"
 
 
 // To display cart total quantity on the page.
-
+updateCartTotalQty();
 function updateCartTotalQty(){
   let  totalQuantity = 0;
   cart.forEach((cartItem)=>{
@@ -15,7 +15,7 @@ function updateCartTotalQty(){
   
 }
 
-update();
+
 function update(productId){
   let searchItem = cart.find((cartItem) =>
     cartItem.productId === productId
@@ -27,12 +27,13 @@ function update(productId){
  }
 ;
 
-
 let productHTML = "";
 
 products.forEach((product)=>{
+  let {id, image, name, priceCent, unit, oldpriceCent, rating, } = product;
 
-  let {image, name, priceCent, unit, oldpriceCent, rating, } = product
+  let searchItem = cart.find((cartItem)=> cartItem.id === id)||[]; // To hold our quantity when refreshed;
+
  productHTML+=` 
   <div class="product-container">
 
@@ -61,7 +62,7 @@ products.forEach((product)=>{
 
      <div class="toggle-container js-toggle-button-${product.id}">
       <button class="decrease-btn js-decrease-btn-${product.id}">-</button>
-      <div class="update" id="update-${product.id}">0</div>
+      <div class="update" id="update-${product.id}">${searchItem.quantity === undefined ? 0 : search.quantity}</div>
       <button class="increase-btn js-increase-btn-${product.id}">+</button>
     </div>
     </div>
@@ -80,7 +81,7 @@ document.querySelectorAll(".js-add-to-cart-btn")
 .forEach((button)=>{
   button.addEventListener("click",() => {
     const productId = button.dataset.productId;
-    
+    update(productId);
     updateCartTotalQty();
 
     addMessage();
