@@ -6,10 +6,8 @@
 
 body{
   font-family:Arial, Helvetica, sans-serif;
-  font-size: 17px;
   background-color:rgba(0, 0, 0, 0.2 );
 }
-
 
 .cart-summary{
   background-color:rgb(240, 240, 240) ;
@@ -28,26 +26,31 @@ body{
   column-gap: 15px;
 } 
 
+@media(max-width:1000px){
+  .main-checkout-grid{
+    grid-template-columns: repeat(4, 1fr);
+    
+  }
+}
+
+
 
 .items-container{
   display:grid;
   grid-template-columns:1fr ;
   background-color:rgb(240, 240, 240) ;
    margin-bottom: 15px;
+   margin-right:10px;
   padding:12px 12px 0px 12px;
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2 ),
   0px 2px 2px 0px rgba(0, 0, 0, 0.2 );
 }    
 
- 
-
-
- .product-container-grid{
+.product-container-grid{
   display:grid;
-  grid-template-columns:180px 1fr;
-
-
+  grid-template-columns:180px 200px;
 } 
+
 
 .product-image-container{
   width:150px;
@@ -66,12 +69,11 @@ body{
   position:relative;
   font-weight: 700;
   z-index:0;
-  
 }
 
 .product-oldprice{
   text-decoration: line-through;
-  margin-top:-25px
+   margin-top:-25px 
 }
 
 .product-description-container{
@@ -88,36 +90,11 @@ body{
 }
 
 .update-container{
-  display:flex;
-  flex-direction:row;
-  gap:100px;
-  margin-top:20px;
-}
-
-.minus-plus-button-container{
-  display:flex;
-  gap:40px;
-}
-
-.decrease-button, .increase-button{
-  padding-inline:14px;
-   padding-block:3px;
-  border-radius:4px;
-  background-color:rgb(236,137,7);
-  border:none;
-  color:white;
-  font-weight: 700;
-  box-shadow:0px 5px 0px 0px green,
-   0px 4px 0px 0px rgb(165, 97, 9)
-}
-
-  .update-container{
   margin-left:30px;
   margin-bottom:20px;
 
- }  
+}  
 
- 
 .remove-button{
   background-color:rgb(236,137,7);
   color:white;
@@ -134,23 +111,11 @@ body{
   transform:scale(90%);
   transition:0.5s;
  
-  /* animation:splash 0.5s linear; */
 }
-
-/* @keyframes splash {
- 0% {
-   transform:scale(80%) ;  box-shadow:0px 5px 0px 0px green,
-   0px 4px 0px 0px rgb(165, 97, 9);
-  }
-  50%{
-background-image: linear-gradient(green,white);
-  }
-} */
 
 /* 
  Styles for order summary */
-
-  .order-summary-wrapper{
+.order-summary-wrapper{
   background-color: rgb(240,240,240);
   padding-inline:15px;
   padding-block:10px;
@@ -171,15 +136,20 @@ background-image: linear-gradient(green,white);
 
 .order-summary{
   display:grid;
-  grid-template-columns: 1fr auto;
   margin-bottom: 15px;
-}
+} 
 
+@media(max-width:576px){
+  .order-summary{
+    grid-template-columns: 1fr auto;
+    grid-row: 1;
+  }
+}
  .total-price-container{
   text-align:center;
  }
 
- .checkout-button{
+ .order-button,.a-back-to-home >button{
   background-color:rgb(236,137,7);
   color:white;
   font-weight:700;
@@ -190,5 +160,7 @@ background-image: linear-gradient(green,white);
   border-top-left-radius: 15px;
   border-bottom-right-radius: 15px;
  }
+
+
 
 
