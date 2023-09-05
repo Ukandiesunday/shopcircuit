@@ -1,40 +1,17 @@
  
-import {cart, updateCartForward, updateCartBackward} from "./cart.js";
+import {cart, increment, decrement} from "./cart.js";
 import {products} from "./products.js";
 
-// To render cart total quantity on the page.
-updateCartTotalQty();
-function updateCartTotalQty(){
-  let  totalQuantity = 0;
 
-  cart.forEach((cartItem)=>{
-    totalQuantity += cartItem.quantity
-    document.querySelector(".cart-total-quantity").innerHTML = totalQuantity;
-  })
-  
-}
+let shop = document.querySelector(".js-product-grid");
 
-  // TO update each quantity in cart
-function update(productId){
-  let searchItem = cart.find((cartItem) =>
-    cartItem.productId === productId
-   );
-   if(searchItem){
-    document.getElementById(`update-${productId}`).innerHTML= 
-    searchItem.quantity;
-   }
-  
-}
-
-
-let productHTML = "";
-
+function renderHTML(){
 products.forEach((product)=>{
   let {id, image, name, priceCent, unit, oldpriceCent, rating, } = product;
 
   let searchItem = cart.find((cartItem)=> cartItem.id === id)||[]; // To hold our quantity when refreshed;
 
- productHTML+=` 
+ shop.innerHTML += ` 
   <div class="product-container">
 
     <div class="image-container">
@@ -46,10 +23,10 @@ products.forEach((product)=>{
     </div>
 
     <div class"price-container">
-    <div class="product-price">$${(priceCent)/100}</div>
-    <div class="old-price">$${(oldpriceCent)/100}</div>
-    
+      <div class="product-price">$${(priceCent)/100}</div>
+      <div class="old-price">$${(oldpriceCent)/100}</div>
     </div>
+    
     <div class="product-rating-container">
       <img src="images/icons/product-rating-${(rating.stars)*10}.png" alt="ratings" class="rating-stars">
       <div class="product-rating-count">(${rating.count})</div>
@@ -60,23 +37,22 @@ products.forEach((product)=>{
 
       <div class="units-left">${unit} units left</div>
 
-     <div class="toggle-container js-toggle-button-${product.id}">
-      <button class="decrease-btn js-decrease-btn-${product.id}">-</button>
-      <div class="update" id="update-${product.id}">${searchItem.quantity === undefined ? 0 : search.quantity}</div>
-      <button class="increase-btn js-increase-btn-${product.id}">+</button>
+     <div class="toggle-container js-toggle-button-${id}">
+     <button class="decrease-btn js-decrease-btn-${id}">-</button> 
+      <div class="update" id="update-${id}">${searchItem.quantity === undefined ? 0 : search.quantity}</div>
+      <button class="increase-btn js-increase-btn-${id}">+</button>
     </div>
     </div>
 
     <div class="shop-chant">uShop Express</div>
 
-    <button class="add-to-cart-btn js-add-to-cart-btn" const data-product-id = ${product.id}>Add to cart</button>
+    <button class="add-to-cart-btn js-add-to-cart-btn" const data-product-id = ${id}>Add to cart</button>
 
   </div>
  ` 
 });
-
-document.querySelector(".js-product-grid").innerHTML = productHTML;
-
+}
+renderHTML();
 
 document.querySelectorAll(".js-add-to-cart-btn")
 .forEach((button)=>{
@@ -84,15 +60,15 @@ document.querySelectorAll(".js-add-to-cart-btn")
     const productId = button.dataset.productId;
     update(productId);
     updateCartTotalQty();
-
+   
     addMessage();
     function addMessage (){
         document.querySelectorAll(".js-add-to-cart-message").forEach((message)=>{
         message.style.display="block";
         setTimeout(()=>{
         message.style.display="none";
-
         },2000)
+        
       })
     }    
     
@@ -105,36 +81,45 @@ document.querySelectorAll(".js-add-to-cart-btn")
     .forEach((decreaseBtn)=>{
       decreaseBtn.addEventListener("click",()=>{
 
-    
-        updateCartBackward(productId);
-        update(productId)
-        updateCartTotalQty()
-       
+        decrement(productId);
+        update(productId);
+        updateCartTotalQty();
        })
-     
     })
     
-    
   
-    // To increase cartQty via  plus (+) button instead
+    // To increase cartQty when pressing plus (+) button 
     document.querySelectorAll(`.js-increase-btn-${productId}`)
     .forEach((increaseBtn)=>{
       increaseBtn.addEventListener("click",()=>{
 
-       
-      updateCartForward(productId)
+      increment(productId)
         update(productId);
         updateCartTotalQty();
         addMessage();
-        
-       
       })
     })
 
-
+   
   })
 })
 
+   // TO update each quantity in cart
+function update(productId){
+  let searchItem = cart.find((cartItem) =>
+    cartItem.productId === productId
+   );
+   if(searchItem){
+    document.getElementById(`update-${productId}`).innerHTML= searchItem.quantity;
+   }
+    updateCartTotalQty();
  
+}
 
+// To render cart total quantity on the page.
+updateCartTotalQty()
+function updateCartTotalQty(){
+  let total = cart.map((cartItem)=>cartItem.quantity).reduce((x, y)=> x + y, 0);
+document.querySelector(".cart-total-quantity").innerHTML = total;
 
+}

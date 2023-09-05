@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop Circuit Project </title>
-    <link rel="stylesheet" href="styles/header.css">
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/u-shop-header.css">
+    <link rel="stylesheet" href="styles/u-shop.css">
   </head>
 
   <body>
@@ -13,31 +13,38 @@
     <header>
       <div class="u-shop-header">
         <div class="header-left">
-          <a href="index.html" class="u-shop-logo"><h1>uShop</h1>
+          <a  href="index.html" class="header-left-link">
+            <span class="u-shop-logo"><h1>uShop</h1></span>
+            <span class="mobile-logo"><h1>U</h1></span>
           </a>
         </div>
       
         <div class="added-to-cart-message js-add-to-cart-message">Product added successfully</div>
 
         <div class="header-middle">
-          <button class="btn-search-icon"><img src="images/icons/search-icon.png" alt="search-icon"></button>
+          <button class="btn-search-icon"><img src="images/icons/search-icon.png" alt="search-icon" class="search-icon"></button>
           <input type="text" placeholder="search" class="input-search">
         </div>
 
         <div class="header-right">
-          <a href="index.html" class="user-icon"><img src="images/icons/user-icon.png" alt="user-icon" width="40" height="40"></a>
-          <a href="checkout.html" class="cart-link"><img src="images/icons/cart-icon.png" alt="cart-icon" class="cart-logo">
-          <div class="cart-quantity cart-total-quantity">0</div>
-          <div class="cart-label">Cart</div>
+          <img class="user-icon" src="images/icons/user-icon.png" alt="user-icon" width="40" height="40">
+
+          <a href="checkout.html"     class="cart-link">
+            <div class="cart-container">
+              <img src="images/icons/cart-icon.png" alt="cart-icon" class="cart-logo">
+                <span class="cart-quantity cart-total-quantity">0</span>
+                
+            </div>
+          
           </a>
         </div>
         
       </div>
     </header>
 
-    <div class="main">
+   
       <div class="container">
-        <div class="wrapper">
+        <!-- <div class="wrapper">
           <img id="id1"   src="images/men's-sleeveless.jpg" alt="sleeveless shirt">
         
            <img id="id2"  src="images/white-sneakers.jpg" alt="white men's shoe">
@@ -45,12 +52,11 @@
           <img id="id3" src="images/suit-trousers.jpg" alt=" men suit trousers ">
           
           <img id="id4" src="images/stock-women-clothes.jpg" alt="stock women clothes">
-        </div>
+        </div> -->
       </div>
-
+    <div class="main">
       <div class="product-grid js-product-grid">
       </div>
-
     </div>
 
     <script type="module" src="scripts/u-shop.js"></script>

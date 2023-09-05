@@ -17,6 +17,12 @@
 margin-left:5rem;
 }
 
+@media(max-width){
+  .header-left{
+    width:auto;
+  }
+  
+}
 .u-shop-logo{
   font-size:14px;
   font-weight:600px;

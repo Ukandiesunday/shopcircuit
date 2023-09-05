@@ -1,15 +1,14 @@
    export let  cart = JSON.parse(localStorage.getItem("data")) ||[];
+
 function saveToStorage(){
 localStorage.setItem("data", JSON.stringify(cart));
- 
 }
 
-export function updateCartForward(productId){
+export function increment(productId){
   // If we can't find anything in the cart let's push to cart;
     let searchItem = cart.find((cartItem)=>
       cartItem.productId === productId
     );
-    
   if(searchItem === undefined){
       cart.push({
       productId:productId,
@@ -21,7 +20,7 @@ export function updateCartForward(productId){
     saveToStorage()
 }
 
-export function updateCartBackward(productId){
+export function decrement(productId){
     let searchItem = cart.find((cartItem)=> cartItem.productId === productId);
 
   if(searchItem === undefined)return;
@@ -39,15 +38,16 @@ export function updateCartBackward(productId){
  */
 
 export function removeFromCart(productId){
-  const newCart = [];
-  cart.forEach((cartItem)=>{
-    cartItem.productId
+  // const newCart = [];
+  // cart.forEach((cartItem)=>{
+  //   cartItem.productId
 
-    if(cartItem.productId !== productId){
-       newCart.push(cartItem);
-    }
-     cart = newCart;
-  })
+  //   if(cartItem.productId !== productId){
+  //      newCart.push(cartItem);
+  //   }
+  //    cart = newCart;
+  // })
+  cart = cart.filter((cartItem)=> cartItem.productId !== productId )
 
   saveToStorage()
 }

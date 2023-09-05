@@ -7,6 +7,7 @@
 body{
   font-family:Arial, Helvetica, sans-serif;
   background-color:rgba(0, 0, 0, 0.2 );
+  font-size: 18px;
 }
 
 .cart-summary{
@@ -16,23 +17,31 @@ body{
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2 ),
   0px 2px 2px 0px rgba(0, 0, 0, 0.2 );
   padding:12px;
+  display:flex;
+  
 }
 
  .main-checkout-grid{
   display:grid;
-  grid-template-columns:1fr 400px;
-  margin-inline:20px;
+  grid-template-columns: repeat(1fr, 400px);
+  margin-inline:30px;
   padding-bottom:100px;
   column-gap: 15px;
 } 
 
-@media(max-width:1000px){
+@media(max-width:800px){
   .main-checkout-grid{
-    grid-template-columns: repeat(4, 1fr);
-    
+    grid-template-columns:1fr;
+    margin-inline:20px;
+   
+  }
+
+  .order-summary-container{
+    grid-row: 1;
+    max-width:400px;
+    margin-left: 30px;
   }
 }
-
 
 
 .items-container{
@@ -49,6 +58,7 @@ body{
 .product-container-grid{
   display:grid;
   grid-template-columns:180px 200px;
+  font-size: 19px;
 } 
 
 
@@ -68,7 +78,7 @@ body{
   color: green;
   position:relative;
   font-weight: 700;
-  z-index:0;
+  font-size: 19px;
 }
 
 .product-oldprice{
@@ -86,7 +96,8 @@ body{
 .shop-chant{
   color:palevioletred;
   font-style:oblique;
-  font-weight:500;
+  font-weight:600;
+  font-size:19px;
 }
 
 .update-container{
@@ -114,7 +125,7 @@ body{
 }
 
 /* 
- Styles for order summary */
+ Style rules for order summary */
 .order-summary-wrapper{
   background-color: rgb(240,240,240);
   padding-inline:15px;
@@ -125,8 +136,7 @@ body{
 
 .order-summary-container{
   display:grid;
-  grid-template-columns: 1fr;
-
+  grid-template-columns:1fr;
 } 
 
 .order-summary-heading{
@@ -136,15 +146,20 @@ body{
 
 .order-summary{
   display:grid;
+  grid-template-columns: 1fr auto;
   margin-bottom: 15px;
+  margin-left: 20px;
 } 
 
-@media(max-width:576px){
-  .order-summary{
-    grid-template-columns: 1fr auto;
-    grid-row: 1;
-  }
+#subtotal{
+  float: right;
+  color:red;
+  font-weight:700;
+  margin-top:-15px;
+  
 }
+
+
  .total-price-container{
   text-align:center;
  }

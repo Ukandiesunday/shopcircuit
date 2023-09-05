@@ -1,15 +1,14 @@
 
 body{
   background-color: rgb(25,25,25);
+  font-size:18px;
 }
 
 .main{
-   padding-top:130px; 
-  margin-inline:15px;
-
+   margin:100px 25px 60px 25px ;
 }
 
-  .container{
+  /* .container{
 display: flex;
 background-color: rgb(181, 46, 46);
  position:relative;
@@ -60,23 +59,66 @@ height: auto;
   } 
   100%{transform: translate(1%);
   } 
-}
+} */
 
 .product-grid{ 
   display:grid;
-  grid-template-columns: repeat(7, 1fr);
   column-gap:5px;
-  row-gap: 7px;
+  row-gap: 10px; 
+  grid-template-columns:repeat(8, 1fr);
+
 }
 
+@media (max-width:2000px){
+ .product-grid{
+   grid-template-columns:repeat(7, 1fr); 
+
+ }
+}
+
+@media (max-width:1500px){
+ .product-grid{
+   grid-template-columns:repeat(6, 1fr); 
+
+ }
+}
+
+@media (max-width:1300px){
+  .product-grid{
+    grid-template-columns:repeat(5, 1fr); 
+  }
+  
+}
+
+@media (max-width:1000px){
+  .product-grid{
+    grid-template-columns:repeat(3, 1fr) ;
+  } 
+   
+}
+
+@media (max-width:800px){
+  .product-grid{
+    grid-template-columns:repeat(2, 1fr) ;
+  } 
+   
+}
+
+
+@media (max-width:500px){
+  .product-grid{
+    grid-template-columns:1fr;
+  }
+  
+} 
+
+
 .product-container{
-  line-height: 18px;
   display:flex;
-  flex-direction: column;
-  padding-block:5px;
+  line-height: 22px;
+  flex-direction: column; 
+  padding-block:10px;
   padding-inline:20px;
-  width:205px;
-  height: 350px;
   box-shadow:0px 4px 8px 0px rgb(199, 180, 180)
    ,0 4px 4px 0 rgb(237, 222, 222);
   border-radius:12px;
@@ -86,16 +128,17 @@ height: auto;
 .image-container{
   padding-top:5px;
   display:flex;
-  max-width: 150px;
+  max-width:160px;
   flex-direction:column;
   justify-content: center;
   align-items: center;
   height: 160px;
+  align-items: center;
 }
 
 .product-image{
-  width:100%;
-  height:auto;
+  max-width:100%;
+  max-height: 100%;
   object-fit: cover;
 }
 
@@ -125,7 +168,7 @@ color:antiquewhite;
   text-decoration:line-through;
   color:antiquewhite;
   float: right;
-  bottom:18px;
+  bottom:22px;
   right:44px;
   position:relative
 }
@@ -135,10 +178,12 @@ width:100px;
 margin-bottom: 2px;
 
 }
+
 .product-rating-container{
   position:relative;
   bottom:11px;
 }
+
 .product-rating-count{
   position:absolute;
   bottom:4px;
@@ -150,6 +195,7 @@ margin-bottom: 2px;
 .units-left{
   color:red;
   margin-top: -12px;
+  margin-bottom:6px;
   
 }
 .toggle-container{
@@ -201,6 +247,8 @@ margin-bottom: 2px;
   border-radius:24px;
   transition:0.5s;
   border:none;
+  font-size:17px;
+  font-weight:500;
 }
 
 .add-to-cart-btn:active{
