@@ -10,21 +10,23 @@ body{
   font-size: 18px;
 }
 
+.checkout-app{
+  margin-inline:25px;
+}
+
 .cart-summary{
   background-color:rgb(240, 240, 240) ;
   color:green;
-  margin: 80px 20px 20px 20px;
+  margin: 80px 10px 20px 0;
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2 ),
   0px 2px 2px 0px rgba(0, 0, 0, 0.2 );
   padding:12px;
   display:flex;
-  
 }
 
  .main-checkout-grid{
   display:grid;
   grid-template-columns: repeat(1fr, 400px);
-  margin-inline:30px;
   padding-bottom:100px;
   column-gap: 15px;
 } 
@@ -32,8 +34,6 @@ body{
 @media(max-width:800px){
   .main-checkout-grid{
     grid-template-columns:1fr;
-    margin-inline:20px;
-   
   }
 
   .order-summary-container{
@@ -48,8 +48,8 @@ body{
   display:grid;
   grid-template-columns:1fr ;
   background-color:rgb(240, 240, 240) ;
-   margin-bottom: 15px;
-   margin-right:10px;
+  margin-bottom: 15px;
+  margin-right:10px;
   padding:12px 12px 0px 12px;
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2 ),
   0px 2px 2px 0px rgba(0, 0, 0, 0.2 );
@@ -124,8 +124,6 @@ body{
  
 }
 
-/* 
- Style rules for order summary */
 .order-summary-wrapper{
   background-color: rgb(240,240,240);
   padding-inline:15px;

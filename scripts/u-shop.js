@@ -121,5 +121,35 @@ updateCartTotalQty()
 function updateCartTotalQty(){
   let total = cart.map((cartItem)=>cartItem.quantity).reduce((x, y)=> x + y, 0);
 document.querySelector(".cart-total-quantity").innerHTML = total;
-
 }
+
+//  const open = document.getElementById("toggle-open");
+//  open.addEventListener("click",()=>{
+//   dropdownMenu.classList.add("close")
+//   open.style.display = "none"
+ 
+// })
+
+// const dropdownMenu =  document.getElementById("dropdown-menu")
+
+// const close = document.getElementById("toggle-close");
+// close.addEventListener("click",()=>{
+//   dropdownMenu.classList.remove("close")
+//   open.style.display="block";
+ 
+// })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
