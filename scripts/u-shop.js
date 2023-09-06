@@ -123,22 +123,28 @@ function updateCartTotalQty(){
 document.querySelector(".cart-total-quantity").innerHTML = total;
 }
 
-//  const open = document.getElementById("toggle-open");
-//  open.addEventListener("click",()=>{
-//   dropdownMenu.classList.add("close")
-//   open.style.display = "none"
+ const open = document.getElementById("toggle-open");
+ open.addEventListener("click",()=>{
+  dropdownContent.classList.add("open")
+   open.style.display = "none"
  
+ })
+
+ const dropdownContent =  document.getElementById("dropdown-content");
+
+ console.log(dropdownContent)
+ const close = document.getElementById("toggle-close");
+
+ close.addEventListener("click",()=>{
+   dropdownContent.classList.remove("open")
+   open.style.display="block";
+ })
+
+
+// window.addEventListener("click",()=>{
+//     dropdownContent.classList.remove("open")
+  
 // })
-
-// const dropdownMenu =  document.getElementById("dropdown-menu")
-
-// const close = document.getElementById("toggle-close");
-// close.addEventListener("click",()=>{
-//   dropdownMenu.classList.remove("close")
-//   open.style.display="block";
- 
-// })
-
 
 
 
