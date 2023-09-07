@@ -125,26 +125,24 @@ document.querySelector(".cart-total-quantity").innerHTML = total;
 
  const open = document.getElementById("toggle-open");
  open.addEventListener("click",()=>{
-  dropdownContent.classList.add("open")
+  document.getElementById("dropdown-content").style.display = "block"
    open.style.display = "none"
- 
  })
 
- const dropdownContent =  document.getElementById("dropdown-content");
-
- console.log(dropdownContent)
  const close = document.getElementById("toggle-close");
 
  close.addEventListener("click",()=>{
-   dropdownContent.classList.remove("open")
+  document.getElementById("dropdown-content").style.display = "none"
    open.style.display="block";
  })
 
 
-// window.addEventListener("click",()=>{
-//     dropdownContent.classList.remove("open")
-  
-// })
+
+ const loader = document.getElementById("preloader");
+ 
+ window.addEventListener("load",()=>{
+  loader.style.display="none";
+ })
 
 
 
