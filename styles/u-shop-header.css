@@ -9,6 +9,7 @@ body{
   font-family:Arial, Helvetica, sans-serif;
 }
 
+
 .u-shop-header{
   height:80px;
   padding-right:30px;
@@ -27,11 +28,13 @@ body{
    color:white; 
 }
 
+/* style rules for left header section  */
 .toggle-open{
   margin-bottom: 14px;
 }
 
 .dropdown-menu{
+  width:auto;
   position:absolute; 
   top:0px;
   left:0;
@@ -145,6 +148,8 @@ cursor: pointer;
 
 }
 
+/*Style rules for middle header section*/
+
 .header-middle{
   height:45px;;
   display:flex;
@@ -162,10 +167,14 @@ cursor: pointer;
 }
 
 .added-to-cart-message{
-  position: relative;
-  color:greenyellow;
+  position: absolute;
+  color:green;
+  background:rgb(236, 137, 7);
   display:none;
-  z-index: 1000;
+  z-index: 1;
+  padding:4px;
+  font-size:18px;
+  border-radius:5px;
 }
 
 .input-search{
@@ -192,6 +201,7 @@ cursor: pointer;
   border-bottom-left-radius:50px;
 }
 
+/*Style rules for left header section*/
 .header-right{
   width:3rem;
   margin-right: 40px;

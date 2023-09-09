@@ -1,44 +1,45 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+
 
 body{
-  background-color: rgb(25,25,25);
-  font-size:17px;
+  background-color:rgb(25,25,25);
+  font-size:18px;
 }
 
 .main{
-   margin:100px 30px 60px 30px;
+   margin:10px 30px 60px 30px;
 }
 
-  /* .container{
-display: flex;
-background-color: rgb(181, 46, 46);
- position:relative;
- width: 90vmin;
- transform:translate(-50%, -50%);
- bottom:-60px;
- left:50%;
- overflow: hidden;
- border:20px solid black;
- border-radius:8px;
- max-height:180px ;
-
+/* Style rules for the slide animation */
+.slide-container{
+  display:flex;
+  position: relative;
+  background-color: black;
+  width: 90vmin;  
+  max-height:200px;
+  transform:translate(-50%);
+  left:50%;
+  right: 50%;
+  overflow:hidden ;
+  border:20px solid black;
+  border-radius:8px;
+  margin-top:84px;
+  gap:30px;
 } 
 
-.wrapper{
-width:100%;
-display:flex;
-animation:slide 18s infinite;
-margin: auto;
-height: auto;
-}
-
-.wrapper img{
+#slider-image{ 
   width:100%;
-  height:auto;
-  margin-inline:40px;
-  object-fit: cover;
+  height:100%;
+  object-fit:contain;
+  animation:slider 18s infinite
 }
 
-@keyframes slide {
+@keyframes slider {
   0%{
     transform:translateX(0);
   }
@@ -59,8 +60,18 @@ height: auto;
   } 
   100%{transform: translate(1%);
   } 
-} */
+} 
 
+
+.marquee{
+  color:red;
+  font-size:24px;
+  font-weight: 700;
+  text-shadow:0px 4px 4px purple;
+}
+/* style rules for slide animation stops*/
+
+/*media query for responsiveness*/
 .product-grid{ 
   display:grid;
   column-gap:5px;
@@ -113,15 +124,23 @@ height: auto;
   
 } 
 
-@media (max-width:460px){
+@media (max-width:450px){
   .product-grid{
     grid-template-columns:1fr;
-    
   }
-  
+
+  .image-container{
+    margin:10px auto;
+  }
+  .old-price{
+    position:relative;
+    left:-50px;
+    top:-20px;
+  }
+
 } 
 
-
+/*General style rules for product container*/
 .product-container{
   display:flex;
   line-height: 20px;
@@ -170,7 +189,7 @@ color:antiquewhite;
   text-decoration:line-through;
   color:antiquewhite;
   float: right;
-  bottom:28px;
+  bottom:20px;
   right:5px;
   position:relative
 }
@@ -257,6 +276,7 @@ margin-bottom: 2px;
   background-color:green;
 }
 
+/* Style rules for preloader*/
 #preloader{
   background:#000 url();
   position:fixed;
@@ -287,4 +307,26 @@ margin-bottom: 2px;
   100%{
     transform:rotate(360deg) scale(90%)
   }
+}
+
+/* Style rules for footer*/
+.footer{
+  background-color:rgba(128, 0, 128, 0.5); 
+  color:white; 
+  text-align:center;
+  padding-bottom:50px;
+  line-height:30px;
+  padding-top: 10px;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:30px;
+  margin-bottom: 10px ; 
+}
+
+span{
+  color:red;
+  font-size:20px ;
 }

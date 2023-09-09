@@ -5,13 +5,13 @@ import {products} from "./products.js";
 
 let shop = document.querySelector(".js-product-grid");
 
-function renderHTML(){
-products.forEach((product)=>{
-  let {id, image, name, priceCent, unit, oldpriceCent, rating, } = product;
+let renderHTML = () => {
+return(shop.innerHTML = products.map((product)=>{
+ let {id, image, name, priceCent, unit, oldpriceCent, rating, } = product;
 
-  let searchItem = cart.find((cartItem)=> cartItem.id === id)||[]; // To hold our quantity when refreshed;
-
- shop.innerHTML += ` 
+ let searchItem = cart.find((cartItem)=> cartItem.id === id)||[]; // To hold our quantity when refreshed;
+ 
+  return ` 
   <div class="product-container">
 
     <div class="image-container">
@@ -50,7 +50,7 @@ products.forEach((product)=>{
 
   </div>
  ` 
-});
+}).join(""));
 }
 renderHTML();
 
@@ -71,7 +71,7 @@ document.querySelectorAll(".js-add-to-cart-btn")
         
       })
     }    
-    
+
     button.style.display="none"
 
     document.querySelector(`.js-toggle-button-${productId}`).style.opacity = "1"
@@ -80,10 +80,11 @@ document.querySelectorAll(".js-add-to-cart-btn")
    document.querySelectorAll(`.js-decrease-btn-${productId}`)
     .forEach((decreaseBtn)=>{
       decreaseBtn.addEventListener("click",()=>{
-
+        
         decrement(productId);
-        update(productId);
-        updateCartTotalQty();
+         update(productId);
+         updateCartTotalQty();
+        
        })
     })
     
@@ -113,25 +114,24 @@ function update(productId){
     document.getElementById(`update-${productId}`).innerHTML= searchItem.quantity;
    }
     updateCartTotalQty();
- 
 }
 
 // To render cart total quantity on the page.
 updateCartTotalQty()
 function updateCartTotalQty(){
   let total = cart.map((cartItem)=>cartItem.quantity).reduce((x, y)=> x + y, 0);
-document.querySelector(".cart-total-quantity").innerHTML = total;
+  document.querySelector(".cart-total-quantity").innerHTML = total;
 }
 
- const open = document.getElementById("toggle-open");
+const open = document.getElementById("toggle-open");
  open.addEventListener("click",()=>{
   document.getElementById("dropdown-content").style.display = "block"
    open.style.display = "none"
- })
+})
 
- const close = document.getElementById("toggle-close");
+const close = document.getElementById("toggle-close");
 
- close.addEventListener("click",()=>{
+close.addEventListener("click",()=>{
   document.getElementById("dropdown-content").style.display = "none"
    open.style.display="block";
  })

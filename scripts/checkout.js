@@ -106,7 +106,7 @@ summary.innerHTML =
 
     <div class="total-price-container">
       
-      <a href="checkout.html"><button class="order-button">Place Order
+      <a href="checkout.html"><button class="order-button">Checkout
       </button></a>
       <a href="index.html" class="a-back-to-home"><button>Back To Home</button></a> 
     </div> 
