@@ -152,19 +152,15 @@ body{
   margin-bottom: 10px;
 }
 
-.order-summary{
+.order-summary,.total-amount-container{
   display:grid;
   grid-template-columns: 1fr auto;
   margin-bottom: 15px;
   margin-left: 20px;
 } 
-
-#subtotal{
-  float: right;
+#total-bill{
   color:red;
   font-weight:700;
-  margin-top:-15px;
-  
 }
 
 

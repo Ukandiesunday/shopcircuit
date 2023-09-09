@@ -100,12 +100,11 @@ summary.innerHTML =
     </div>
     
     <div class="total-amount-container">
-      <div class="total-amount">Subtotal (excluding shipping)</div>
-      <div class"items-price" id="subtotal">$${calcTotalPrice(amount)}</div>
+      <div class="total-amount">Total Bill</div>
+      <div class"items-price" id="total-bill">$${calcTotalPrice(amount)}</div>
     </div>
 
     <div class="total-price-container">
-      
       <a href="checkout.html"><button class="order-button">Checkout
       </button></a>
       <a href="index.html" class="a-back-to-home"><button>Back To Home</button></a> 
