@@ -2,9 +2,6 @@ import {cart, removeFromCart} from "./cart.js";
 import {products} from "./products.js";
 import { calculateMoney, calcInitialPrice, calcTax, calcTotalPrice} from "./utility/money.js";
 
-
-
-
 let checkout = document.querySelector(".js-checkout-wrapper");
 
 let matchingProduct;
@@ -38,21 +35,15 @@ cart.forEach((cartItem)=>{
         <div class="in-stock">In stock</div>
         <div class="shop-chant">uShop Express</div>
       </div>
-
     </div>
-  
     <div class="update-container">
       <a href="checkout.html">
       <button class="remove-button  js-remove-button" data-product-id = "${matchingProduct.id}">REMOVE</button>
       </a>
     </div>
-
   </div>
-
  `
-
 })
-
 
 let amount = 0;
 cart.forEach((cartItem)=>{
@@ -66,19 +57,16 @@ cart.forEach((cartItem)=>{
   })
 
 })
- 
 
 let checkoutCartQty = 0;
  cart.forEach((cartItem)=>{
   checkoutCartQty += cartItem.quantity
 })
 
-
-   
 let summary = document.querySelector(".js-checkout-summary");
 
 summary.innerHTML =
-`   
+` 
   <div class="order-summary-wrapper">
     <div class="order-summary-container">
       <h2 class="order-summary-heading">Order Summary</h2>
@@ -96,27 +84,19 @@ summary.innerHTML =
         <div class="items-description">Estimated tax (10%):</div>
         <div class="items-price">$${calcTax(amount)}</div>
       </div>
-    
     </div>
-    
     <div class="total-amount-container">
       <div class="total-amount">Total Bill</div>
       <div class"items-price" id="total-bill">$${calcTotalPrice(amount)}</div>
     </div>
-
     <div class="total-price-container">
       <a href="checkout.html"><button class="order-button">Checkout
       </button></a>
       <a href="index.html" class="a-back-to-home"><button>Back To Home</button></a> 
     </div> 
   </div>
-
   `
-
-
 document.querySelector('.js-cart-summary').innerHTML =`<h2>Cart Summary: $${calcTotalPrice(amount)}</h2>`
-
-
 
 document.querySelector(".cart-total-quantity").innerHTML = checkoutCartQty;
 
