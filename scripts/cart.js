@@ -1,4 +1,4 @@
-   export let  cart = JSON.parse(localStorage.getItem("data")) ||[];
+export let  cart = JSON.parse(localStorage.getItem("data")) ||[];
 
 function saveToStorage(){
 localStorage.setItem("data", JSON.stringify(cart));
@@ -22,21 +22,19 @@ export function increment(productId){
 
 export function decrement(productId){
     let searchItem = cart.find((cartItem)=> cartItem.productId === productId);
-
   if(searchItem === undefined)return;
     else if(searchItem.quantity === 0)return;
     else{
-    searchItem.quantity-=1 
+    searchItem.quantity -= 1 
     }
   
   cart = cart.filter((cartItem)=> cartItem.quantity !== 0);
   saveToStorage();
 }
 
-
-/* pushing items to newCart while excluding items that don't match this 'productId' we get when clicking the remove button.
+/* pushing items to newCart while excluding items that don't match this
+'productId' we get when clicking the remove button.
  */
-
 export function removeFromCart(productId){
   // const newCart = [];
   // cart.forEach((cartItem)=>{
@@ -48,7 +46,6 @@ export function removeFromCart(productId){
   //    cart = newCart;
   // })
   cart = cart.filter((cartItem)=> cartItem.productId !== productId )
-
   saveToStorage()
 }
 
