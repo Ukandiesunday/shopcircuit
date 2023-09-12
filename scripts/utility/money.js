@@ -19,6 +19,5 @@ export function calcTax(taxRate){
 
  //To calculate total price of product after tax
 export function calcTotalPrice(totalPrice){
-  return ((((tax+iprice)*100) + totalPrice)/100).toFixed(2)
-
+  return ((((tax + iprice) * 100) + totalPrice) / 100).toFixed(2)
  }
