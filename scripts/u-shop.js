@@ -2,7 +2,6 @@
 import {cart, increment, decrement} from "./cart.js";
 import {products} from "./products.js";
 
-
 let shop = document.querySelector(".js-product-grid");
 
 let renderHTML = () => {
@@ -13,39 +12,29 @@ return(shop.innerHTML = products.map((product)=>{
  
   return ` 
   <div class="product-container">
-
     <div class="image-container">
       <img src="${image}" alt="khaki-sneakers" class="product-image">
     </div>
-
     <div class="product-name">
         ${name} 
     </div>
-
     <div class"price-container">
       <div class="product-price">$${(priceCent)/100}</div>
       <div class="old-price">$${(oldpriceCent)/100}</div>
     </div>
-    
     <div class="product-rating-container">
       <img src="images/icons/product-rating-${(rating.stars)*10}.png" alt="ratings" class="rating-stars">
       <div class="product-rating-count">(${rating.count})</div>
     </div>
-
-    
     <div class="select-product-quantity">
-
       <div class="units-left">${unit} units left</div>
-
      <div class="toggle-container js-toggle-button-${id}">
      <button class="decrease-btn js-decrease-btn-${id}">-</button> 
-      <div class="update" id="update-${id}">${searchItem.quantity === undefined ? 0 : search.quantity}</div>
+      <div class="update" id="update-${id}">${searchItem.quantity === undefined ? 0 : searchItem.quantity}</div>
       <button class="increase-btn js-increase-btn-${id}">+</button>
     </div>
     </div>
-
     <div class="shop-chant">uShop Express</div>
-
     <button class="add-to-cart-btn js-add-to-cart-btn" const data-product-id = ${id}>Add to cart</button>
 
   </div>
@@ -53,7 +42,6 @@ return(shop.innerHTML = products.map((product)=>{
 }).join(""));
 }
 renderHTML();
-
 document.querySelectorAll(".js-add-to-cart-btn")
 .forEach((button)=>{
   button.addEventListener("click",() => {
@@ -67,41 +55,33 @@ document.querySelectorAll(".js-add-to-cart-btn")
         message.style.display="block";
         setTimeout(()=>{
         message.style.display="none";
-        },2000)
-        
+        },2000) 
       })
     }    
 
-    button.style.display="none"
-
-    document.querySelector(`.js-toggle-button-${productId}`).style.opacity = "1"
-
+    button.style.display="none";
+    document.querySelector(`.js-toggle-button-${productId}`).style.opacity = "1";
+   
    // To decrease cartQty via  minus (-) button
    document.querySelectorAll(`.js-decrease-btn-${productId}`)
     .forEach((decreaseBtn)=>{
       decreaseBtn.addEventListener("click",()=>{
-        
         decrement(productId);
          update(productId);
          updateCartTotalQty();
-        
        })
     })
     
-  
     // To increase cartQty when pressing plus (+) button 
     document.querySelectorAll(`.js-increase-btn-${productId}`)
     .forEach((increaseBtn)=>{
       increaseBtn.addEventListener("click",()=>{
-
       increment(productId)
         update(productId);
         updateCartTotalQty();
         addMessage();
       })
     })
-
-   
   })
 })
 
@@ -130,16 +110,11 @@ const open = document.getElementById("toggle-open");
 })
 
 const close = document.getElementById("toggle-close");
-
 close.addEventListener("click",()=>{
   document.getElementById("dropdown-content").style.display = "none"
    open.style.display="block";
  })
-
-
-
  const loader = document.getElementById("preloader");
- 
  window.addEventListener("load",()=>{
   loader.style.display="none";
  })
