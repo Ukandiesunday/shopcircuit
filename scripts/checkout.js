@@ -3,9 +3,7 @@ import {products} from "./products.js";
 import { calculateMoney, calcInitialPrice, calcTax, calcTotalPrice} from "./utility/money.js";
 
 let checkout = document.querySelector(".js-checkout-wrapper");
-
 let matchingProduct;
-
 cart.forEach((cartItem)=>{
  const productId = cartItem.productId
 
@@ -53,16 +51,13 @@ cart.forEach((cartItem)=>{
     if(product.id === cartItem.productId){
     amount += product.priceCent * cartItem.quantity;
     }
-    
   })
-
 })
 
 let checkoutCartQty = 0;
  cart.forEach((cartItem)=>{
   checkoutCartQty += cartItem.quantity
 })
-
 let summary = document.querySelector(".js-checkout-summary");
 
 summary.innerHTML =
@@ -74,12 +69,10 @@ summary.innerHTML =
         <div class="items-description">Items (${checkoutCartQty}):</div>
         <div class="items-price">$${calcInitialPrice(amount)}</div>
       </div>
-    
       <div class="order-summary">
         <div class="items-description">Total before tax:</div>
         <div class="items-price">$${calcInitialPrice(amount)}</div>
       </div>
-    
       <div class="order-summary">
         <div class="items-description">Estimated tax (10%):</div>
         <div class="items-price">$${calcTax(amount)}</div>
