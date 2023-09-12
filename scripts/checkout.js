@@ -54,10 +54,12 @@ cart.forEach((cartItem)=>{
   })
 })
 
-let checkoutCartQty = 0;
- cart.forEach((cartItem)=>{
-  checkoutCartQty += cartItem.quantity
-})
+// let checkoutCartQty = 0;
+//  cart.forEach((cartItem)=>{
+//   checkoutCartQty += cartItem.quantity
+// })
+let checkoutCartQty = cart.map((cartItem)=> cartItem.quantity).reduce((x, y)=> x + y, 0) 
+
 let summary = document.querySelector(".js-checkout-summary");
 
 summary.innerHTML =
