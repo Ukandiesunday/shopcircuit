@@ -99,7 +99,7 @@ function update(productId){
 // To render cart total quantity on the page.
 updateCartTotalQty()
 function updateCartTotalQty(){
-  let total = cart.map((cartItem)=>cartItem.quantity).reduce((x, y)=> x + y, 0);
+  let total = cart.map((cartItem)=>cartItem.quantity).reduce((prevQuantity, nextQuantity)=> prevQuantity + nextQuantity, 0);
   document.querySelector(".cart-total-quantity").innerHTML = total;
 }
 
